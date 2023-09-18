@@ -1,0 +1,22 @@
+#navi, #nava{
+    margin-left: 20px;
+    color: white;
+}
+
+#navs,#navse{
+    margin-left: 808px;
+    color: white;
+}
+#navse{float: right;}
+
+#navc, #navo{color: white;}
+
+#navo{
+    margin-right: 20px;
+}
+.span, .titulo{
+    width: 100%;
+    padding: 8px;
+    border-radius: 0.3em;
+    background-color: rgb(34, 34, 34);
+}

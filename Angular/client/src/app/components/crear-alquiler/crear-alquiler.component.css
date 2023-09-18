@@ -1,0 +1,63 @@
+.container1{
+    border: double;
+    width: 80%;
+    height: 630px;
+    margin-top: 10px;
+    margin-left: 130px;
+}
+.titulo{
+    width: 50%;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 0.2em;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#codec label, #code label, #day label, #dep label, #total label, #codef label{
+    padding-left: 25px;
+}
+
+ #codec, #code, #day, #dep, #total, #codef{
+    margin-top: 20px;
+    width: 40%;
+    margin-left: 70px;
+}
+
+#navi, #nava{
+    margin-left: 20px;
+    color: white;
+}
+
+#navs,#navse{
+    margin-left: 908px;
+    color: white;
+}
+#navse{margin-left: 15px;}
+
+#navc, #navo{color: white;}
+
+#navo{
+    margin-right: 20px;
+}
+
+
+#botong,#botonc{
+    width: 10%;
+    height: 43px;
+    margin-top: 100px;
+}
+
+#botonc{
+    margin-left: 100px;
+}
+
+#botong{
+    margin-left: 140px;
+}
+
+#product{
+    width: 35%;
+    float: right;
+}
