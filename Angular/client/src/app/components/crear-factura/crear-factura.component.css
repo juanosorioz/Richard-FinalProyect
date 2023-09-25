@@ -1,0 +1,55 @@
+.container1{
+    width: 70%;
+    border: double;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+#namec label, #numer label, #direc label, #cedue label, #codec label, #code label{
+    padding-left: 25px;
+}
+
+#namec, #numer, #direc, #cedue, #codec{
+    margin-top: 10px;
+    margin-left: 200px;
+}
+.titulou{
+    padding: 15px;
+    border-radius: 0.7em;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#navi, #nava, #navc{
+    margin-left: 20px;
+    color: white;
+}
+
+#navs,#navse{
+    margin-left: 908px;
+    color: white;
+}
+#navse{margin-left: 10px;}
+
+#navc, #navo{color: white;
+}
+
+#botong,#botonc, #botone{
+    width: 10%;
+    height: 43px;
+    margin-top: 50px;
+    border: double;
+}
+
+#botonc{
+    margin-left: 200px;
+}
+#empc, #produ{
+    width: 58%;
+    height: 55px;
+    margin-left: 200px;
+}
+
+#botong{
+    margin-left: 300px;
+}
+
