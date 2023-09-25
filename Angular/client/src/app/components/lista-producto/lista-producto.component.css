@@ -1,0 +1,83 @@
+#herra label, #canti label, #code label, #category label, #ubication #product{
+    padding-left: 25px;
+}
+
+
+#navi, #nava{
+    margin-left: 20px;
+    color: white;
+}
+
+
+
+
+#navs,#navse{
+    margin-left: 808px;
+    color: white;
+}
+#navse{float: right;}
+
+
+#navo{margin-right: 20px;}
+
+
+#navc,#navo{color: white;}
+
+
+#code label{
+    padding-left: 25px;
+}
+#category, #tipo{
+    width: 25%;
+    height: 60px;
+    margin-left: 80px;
+}
+
+
+#tipo{
+    margin-left: 165px;
+   
+}
+
+
+#product{
+    width: 40%;
+    margin-left: 140px;
+   
+}
+#card a{
+    width: 32%;
+    height: 40px;
+    border: double;
+}
+
+
+#botong,#botonc, #botone{
+    width: 10%;
+    height: 43px;
+    margin-top: 100px;
+    border: double;
+}
+
+
+#botonc{
+    margin-left: 50px;
+}
+
+
+#botone{
+    margin-left: 50px;
+}
+
+.span, .titulo{
+    width: 100%;
+    padding: 8px;
+    border-radius: 0.3em;
+    background-color:rgb(49, 48, 48);
+}
+#label{
+    margin-left: 20px;
+}
+#descri{
+    color: white;
+}

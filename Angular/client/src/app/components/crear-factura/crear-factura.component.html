@@ -1,0 +1,39 @@
+<div class="container1">
+    <div class="row col-xs-12">
+        <span class="titulou">{{titulo | uppercase}}</span>
+        <form action="" class="mt-3" [formGroup]="FacturaForm" (ngSubmit)="agregarFactura()">
+        <select id="empc" class="form-select mt-5 col-7" formControlName="tipocliente">
+            <option selected>Tipo de cliente</option>
+            <option value="1">Empresa</option>
+            <option value="2">Cliente</option>
+        </select>
+          <div class="text-danger" *ngIf="FacturaForm.get('tipocliente')?.hasError('required') && FacturaForm.get('tipocliente')?.touched">El tipo de cliente es obligatorio</div>
+          <div id="namec"class="form-floating col-7">
+            <input type="text" class="form-control" id="floatingNamec" placeholder="Empresa o Cliente" formControlName="factura">
+            <div class="text-danger" *ngIf="FacturaForm.get('factura')?.hasError('required') && FacturaForm.get('factura')?.touched">El Nombre del Cliente es Obligatorio</div>
+            <label for="floatingNamec">Nombre de la Empresa o Cliente</label>
+          </div>
+          <div id="numer"class="form-floating col-7">
+            <input type="number" class="form-control" id="floatingNumer" placeholder="Numero" formControlName="telefono">
+            <div class="text-danger" *ngIf="FacturaForm.get('telefono')?.hasError('required') && FacturaForm.get('telefono')?.touched">El telefono es obligatorio</div>
+            <label for="floatingNumer">Telefono</label>
+          </div>
+          <div id="direc"class="form-floating col-7">
+            <input type="text" class="form-control" id="floatingDirec" placeholder="Direccion" formControlName="direccion">
+            <div class="text-danger" *ngIf="FacturaForm.get('direccion')?.hasError('required') && FacturaForm.get('direccion')?.touched">La direccion es obligatorio</div>
+            <label for="floatingDirec">Direccion</label>
+          </div>
+          <div id="cedue"class="form-floating col-7">
+            <input type="number" class="form-control" id="floatingCedue" placeholder="Cedula" formControlName="identificacion">
+            <div class="text-danger" *ngIf="FacturaForm.get('identificacion')?.hasError('required') && FacturaForm.get('identificacion')?.touched">La Identificación es obligatorio</div>
+            <label for="floatingCedue">Cedula o NIT</label>
+          </div>
+          <div class="container3">
+            <div class="row col-xs-12">
+                <button id="botong" type="submit" class="btn btn-success col-xs-4 mb-5">Guardar</button>
+                <button id="botonc" type="button" class="btn btn-secondary col-xs-4" routerLink="/lista-factura">Cancelar</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
