@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alquiler } from 'src/app/models/alquiler';
+import { Producto } from 'src/app/models/producto';
 import { AlquilerServiceService } from 'src/app/services/alquiler-service.service';
+import { ProductoServiceService } from 'src/app/services/producto-service.service';
 
 @Component({
   selector: 'app-crear-alquiler',
@@ -14,8 +16,12 @@ export class CrearAlquilerComponent implements OnInit {
   AlquilerForm : FormGroup;
   titulo = 'Crear Alquiler';
   id: string | null;
+  listaProducto: Producto[]=[];
+  seleccionado = 'producto';
+
   constructor(private fb: FormBuilder,
               private _alquilerService: AlquilerServiceService,
+              private _productoService: ProductoServiceService,
               private router: Router,
               private aRoute : ActivatedRoute) {
     this.AlquilerForm = this.fb.group({
@@ -34,6 +40,16 @@ export class CrearAlquilerComponent implements OnInit {
 
   ngOnInit(): void {
     this.esEditar()
+    this.obtenerProductos()
+  }
+
+  obtenerProductos(){
+    this._productoService.getProductos().subscribe(data =>{
+      console.log(data);
+      this.listaProducto = data;
+    }, error =>{
+      console.log(error);
+    })
   }
 
   agregarAlquiler(){

@@ -22,6 +22,7 @@ export class CrearProductoComponent implements OnInit {
       producto: ['', Validators.required],
       categoria: ['', Validators.required],
       cantidad: ['', Validators.required],
+      stock: ['', Validators.required],
       precio: ['', Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get('id')
@@ -38,6 +39,7 @@ export class CrearProductoComponent implements OnInit {
       nombre : this.ProductoForm.get('producto')?.value,
       categoria : this.ProductoForm.get('categoria')?.value,
       cantidad : this.ProductoForm.get('cantidad')?.value,
+      stock : this.ProductoForm.get('stock')?.value,
       precio : this.ProductoForm.get('precio')?.value
     }
 
@@ -68,6 +70,7 @@ export class CrearProductoComponent implements OnInit {
           producto: data.nombre,
           categoria: data.categoria,
           cantidad: data.cantidad,
+          stock: data.stock,
           precio: data.precio
         })
       })
