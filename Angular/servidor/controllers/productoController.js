@@ -38,7 +38,7 @@ exports.obtenerProducto = async (req,res) =>{
 
 exports.actualizarProducto = async(req, res) =>{
     try {
-        const {nombre, categoria, cantidad, precio} = req.body
+        const {nombre, categoria, cantidad,stock, precio} = req.body
         let producto = await Producto.findById(req.params.id);
         
         if(!producto){
@@ -48,6 +48,7 @@ exports.actualizarProducto = async(req, res) =>{
         producto.nombre = nombre;
         producto.categoria = categoria;
         producto.cantidad = cantidad;
+        producto.stock= stock;
         producto.precio = precio;
 
         producto = await Producto.findByIdAndUpdate(

@@ -24,11 +24,11 @@
               <div class="text-danger" *ngIf="AlquilerForm.get('direccion')?.hasError('required') && AlquilerForm.get('direccion')?.touched">La direccion es obligatoria</div>
               <label for="floatingCodec">Direccion</label>
             </div>
-            <div id="code"class="form-floating col-7">
-              <input type="text" class="form-control" id="floatingCode" placeholder="Codigo" formControlName="codigoherramienta">
-              <div class="text-danger" *ngIf="AlquilerForm.get('codigoherramienta')?.hasError('required') && AlquilerForm.get('codigoherramienta')?.touched">El codigo de la herramienta es obligatorio</div>
-              <label for="floatingCode">Codigo de la herramienta</label>
-            </div>
+            <select id="codec" class="form-control" formControlName="codigoherramienta" [(ngModel)]="seleccionado" aria-label="Default select example">
+              <option selected disabled>Productos</option>
+              <option *ngFor="let item of listaProducto" [value]="item.nombre">{{item.nombre}}</option>
+              <div class="text-danger" *ngIf="AlquilerForm.get('codigoherramienta')?.hasError('required') && AlquilerForm.get('codigoherramienta')?.touched">El Producto es obligatorio</div>
+          </select>
             <div id="day"class="form-floating col-7">
               <input type="number" class="form-control" id="floatingDay" placeholder="Dias"formControlName="diasprestamo">
               <div class="text-danger" *ngIf="AlquilerForm.get('diasprestamo')?.hasError('required') && AlquilerForm.get('diasprestamo')?.touched">Los dias de prestamo es obligatorio</div>
@@ -40,7 +40,7 @@
               <label for="floatingDep">Deposito</label>
             </div>
             <div id="total"class="form-floating col-7">
-              <input type="number" class="form-control" id="floatingTot" placeholder="Total" formControlName="total">
+              <input  type="number" class="form-control" id="floatingTot" placeholder="Total" formControlName="total" readonly>
               <label for="floatingTot">Total del prestamo</label>
             </div>
         <div class="container12">
