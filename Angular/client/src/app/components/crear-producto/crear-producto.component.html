@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="container1 mt-5">
+    <div class="row">
+      <div class="card">
+        <div class="card-header bg-dark col-7 mt-3">
+          <span class="titulou">{{ titulo | uppercase }}</span>
+        </div>
+        <form action="" class="row formu mt-2" [formGroup]="ProductoForm" (ngSubmit)="agregarProducto()">
+        <div id="herra"class="form-group mb-3 col-12">
+           <label class="nameh" id="nameh" for="floatingInput">Nombre de la herramienta:</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Herramienta" formControlName="producto">
+            <div class="text-danger" *ngIf="ProductoForm.get('producto')?.hasError('required') && ProductoForm.get('producto')?.touched">El nombre de la herramienta es obligatorio</div>
+          </div>
+          <div id="canti"class="form-group col-12">
+            <label for="floatingCantidad">Cantidad del Producto:</label>
+            <input type="number" class="form-control" id="floatingCantidad" placeholder="Cantida" formControlName="cantidad">
+            <div class="text-danger" *ngIf="ProductoForm.get('cantidad')?.hasError('required') && ProductoForm.get('cantidad')?.touched">La cantidad es obligatoria </div>
+          </div>
+            <div class="form-group col-12">
+                  <label for="">Selecciona la Categoria:</label>
+                  <select id="category" class="form-select col-7" formControlName="categoria">
+                    <option value="1">Manual</option>
+                    <option value="2">Electrica</option>
+                    <option value="3">Pintura</option>
+                    <option value="4">Pieza</option>
+                  </select>
+                  <div id="advert" class="text-danger" *ngIf="ProductoForm.get('categoria')?.hasError('required') && ProductoForm.get('categoria')?.touched">La categoria es obligatoria</div>
+            </div>
+            <div id="herra"class="form-group col-12">
+              <label class="label" for="floatingCode">Valor:</label>
+              <input type="text" class="form-control" id="floatingCode" placeholder="Codigo"formControlName="precio">
+              <div class="text-danger" *ngIf="ProductoForm.get('precio')?.hasError('required') && ProductoForm.get('precio')?.touched">El precio es obligatorio </div>
+            </div>
+            <div id="canti"class="form-group col-12">
+              <label for="floatingCantidad">Stock del producto:</label>
+              <input type="number" class="form-control" id="floatingCantidad" placeholder="Cantida" formControlName="stock">
+              <div class="text-danger" *ngIf="ProductoForm.get('stock')?.hasError('required') && ProductoForm.get('stock')?.touched">El stock es obligatorio </div>
+            </div>
+          <div class="container">
+            <div class="row col-4">
+                <button id="botong" type="submit" class="btn btn-success col-6">Guardar</button>
+                <button id="botonc" type="button" class="btn btn-secondary" routerLink="/lista-producto">Cancelar</button>
+            </div>
+          </div>
+        </form>
+        <div id="product" class="card col-4">
+          <img src="..." class="card-img-top" alt="...">
+          <div id="body" class="card-body">
+            <h5 class="card-title">PRODUCTOS</h5>
+            <p class="card-text">Herramientas y pinturas</p>
+          </div>
+          <div id="card" class="card-body">
+          <a href="#" class="btn btn-primary">Subir</a>
+          <a href="#" class="btn btn-dark">Save</a>
+          <a href="#" class="btn btn-danger">Eliminar</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+        

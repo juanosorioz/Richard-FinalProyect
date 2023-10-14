@@ -1,0 +1,60 @@
+  <div class="container1">
+    <div class="row row-cabecera">
+      <div class="card">
+        <div class="card-header">
+          <span class="titulou">{{titulo | uppercase}}</span>
+        </div>
+          <form action="" class="row formu" [formGroup]="FacturaForm" (ngSubmit)="agregarFactura()">
+            <div class="form-group col-md-2">
+                <label for="">Tipo Cliente:</label>
+                <select id="empc" class="form-control" formControlName="tipocliente">
+                  <option value="0">--Tipo de cliente--</option>
+                  <option value="1">Empresa</option>
+                  <option value="2">Cliente</option>
+                </select>
+              <div class="text-danger" *ngIf="FacturaForm.get('tipocliente')?.hasError('required') && FacturaForm.get('tipocliente')?.touched">Seleccione el cliente</div>
+            </div>
+          <div id="namec"class="form-group col-md-10">
+            <label for="floatingNamec">Nombre Empresa o Cliente:</label>
+            <input type="text" class="form-control" id="floatingNamec" placeholder="Empresa o Cliente" formControlName="factura">
+            <div class="text-danger" *ngIf="FacturaForm.get('factura')?.hasError('required') && FacturaForm.get('factura')?.touched">El Nombre del Cliente es Obligatorio</div>
+          </div>
+          <div id="numer"class="form-group col-md-6">
+            <label for="floatingNumer">Telefono:</label>
+            <input type="number" class="form-control" id="floatingNumer" placeholder="Numero" formControlName="telefono">
+            <div class="text-danger" *ngIf="FacturaForm.get('telefono')?.hasError('required') && FacturaForm.get('telefono')?.touched">El telefono es obligatorio</div>
+          </div>
+          <div id="direc"class="form-group col-md-6">
+            <label for="floatingDirec">Direccion:</label>
+            <input type="text" class="form-control" id="floatingDirec" placeholder="Direccion" formControlName="direccion">
+            <div class="text-danger" *ngIf="FacturaForm.get('direccion')?.hasError('required') && FacturaForm.get('direccion')?.touched">La direccion es obligatorio</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="">Productos:</label>
+            <select id="produ" class="form-control col-md-4" formControlName="productoF" [(ngModel)]="seleccionado" aria-label="Default select example">
+                <option selected disabled>Productos:</option>
+                <option *ngFor="let item of listaProducto" [value]="item.nombre">{{item.nombre}}</option>
+                <div class="text-danger" *ngIf="FacturaForm.get('productoF')?.hasError('required') && FacturaForm.get('productoF')?.touched">El Producto es obligatorio</div>
+            </select>
+          </div>
+          <div id="cedue"class="form-group col-4">
+            <label for="floatingCedue">Cantidad:</label>
+            <input type="number" class="form-control" id="floatingCedue" placeholder="Cantidad" formControlName="cantidades">
+            <div class="text-danger" *ngIf="FacturaForm.get('cantidades')?.hasError('required') && FacturaForm.get('cantidades')?.touched">La cantidad es obligatoria</div>
+          </div>
+          <div id="cedue"class="form-group col-4">
+            <label for="floatingCedue">Precio:</label>
+            <input type="number" class="form-control" id="floatingCedue" placeholder="Precio" formControlName="price">
+            <div class="text-danger" *ngIf="FacturaForm.get('price')?.hasError('required') && FacturaForm.get('price')?.touched">El precio es obligatorio</div>
+          </div>
+        </form>
+        <div class="container3">
+          <div class="row col-xs-12">
+              <button id="botong" type="submit" class="btn btn-success bordered-around col-md-2">Guardar</button>
+              <button id="botonc" type="button" class="btn btn-secondary  bordered-around  col-md-2" routerLink="/lista-factura">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

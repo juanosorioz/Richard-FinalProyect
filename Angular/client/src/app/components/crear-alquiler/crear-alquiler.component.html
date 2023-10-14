@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="container1">
+    <div class="row col-xs-12">
+      <div class="card">
+        <div class="card-tittle bg-dark">
+          <span class="titulo text-white">{{titulo | uppercase}}</span>
+        </div>
+        <form class="row" action="" [formGroup]="AlquilerForm" (ngSubmit)="agregarAlquiler()">
+          <div id="codec"class="form-group col-3">
+              <label for="floatingCodec">Tipo cliente:</label>
+              <input type="text" class="form-control" id="floatingCodec" placeholder="Tipo Cliente"formControlName="tipocliente">
+              <div class="text-danger" *ngIf="AlquilerForm.get('tipocliente')?.hasError('required') && AlquilerForm.get('tipocliente')?.touched">Tipo cliente</div>
+            </div>
+            <div id="codec"class="form-group col-9">
+              <label for="floatingCodec">Nombre:</label>
+              <input type="text" class="form-control" id="floatingCodec" placeholder="Nombre"formControlName="nombre">
+              <div class="text-danger" *ngIf="AlquilerForm.get('nombre')?.hasError('required') && AlquilerForm.get('nombre')?.touched">El nombre es obligatorio</div>
+            </div>
+            <div id="codec"class="form-group col-4">
+              <label for="floatingCodec">Telefono:</label>
+              <input type="number" class="form-control" id="floatingCodec" placeholder="Telefono"formControlName="telefono">
+              <div class="text-danger" *ngIf="AlquilerForm.get('telefono')?.hasError('required') && AlquilerForm.get('telefono')?.touched">El telefono es obligatorio</div>
+            </div>
+            <div id="codec"class="form-group col-4">
+              <label for="floatingCodec">Direccion:</label>
+              <input type="text" class="form-control" id="floatingCodec" placeholder="Direccion"formControlName="direccion">
+              <div class="text-danger" *ngIf="AlquilerForm.get('direccion')?.hasError('required') && AlquilerForm.get('direccion')?.touched">La direccion es obligatoria</div>
+            </div>
+            <div class="form-group col-4">
+              <label for="" id="label">Productos:</label>
+              <select id="floatingCodec" class="form-control" formControlName="codigoherramienta" [(ngModel)]="seleccionado" aria-label="Default select example">
+                <option selected disabled>Productos</option>
+                <option *ngFor="let item of listaProducto" [value]="item.nombre">{{item.nombre}}</option>
+                <div class="text-danger" *ngIf="AlquilerForm.get('codigoherramienta')?.hasError('required') && AlquilerForm.get('codigoherramienta')?.touched">El Producto es obligatorio</div>
+            </select>
+            </div>
+            <div id="day"class="form-group col-4">
+              <label for="floatingDay">Dias de Prestamo:</label>
+              <input type="number" class="form-control" id="floatingCodec" placeholder="Dias"formControlName="diasprestamo">
+              <div class="text-danger" *ngIf="AlquilerForm.get('diasprestamo')?.hasError('required') && AlquilerForm.get('diasprestamo')?.touched">Los dias de prestamo es obligatorio</div>
+            </div>
+            <div id="dep"class="form-group col-4">
+              <label for="floatingDep">Deposito:</label>
+              <input type="number" class="form-control" id="floatingCodec" placeholder="Deposito" formControlName="deposito">
+              <div class="text-danger" *ngIf="AlquilerForm.get('deposito')?.hasError('required') && AlquilerForm.get('deposito')?.touched">El deposito es obligatorio</div>
+            </div>
+            <div id="total"class="form-group col-4">
+              <label for="floatingTot">Total del prestamo:</label>
+              <input  type="number" class="form-control" id="floatingCodec" placeholder="Total" formControlName="total" readonly>
+            </div>
+        <div class="container12">
+          <div class="row  button col-xs-12">
+              <button id="botong" type="submit" class="btn btn-success col-2">Guardar</button>
+              <button id="botonc" type="button" class="btn btn-secondary col-2" routerLink="/lista-alquiler">Cancelar</button>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class="part2">
+        <div id="product" class="card col-3" style="width: 25%;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Imagen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
