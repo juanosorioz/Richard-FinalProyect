@@ -35,6 +35,16 @@ export class CrearProductoComponent implements OnInit {
   agregarProducto(){
     console.log(this.ProductoForm);
 
+    if(this.ProductoForm.invalid){
+
+      return Object.values(this.ProductoForm.controls).forEach(control =>{
+
+        control.markAllAsTouched();
+
+      })
+
+    }
+
     const PRODUCTO : Producto ={
       nombre : this.ProductoForm.get('producto')?.value,
       categoria : this.ProductoForm.get('categoria')?.value,
@@ -76,4 +86,21 @@ export class CrearProductoComponent implements OnInit {
       })
     }
   }
+      //Validaciones
+get nombreNoValido(){
+  return this.ProductoForm.get('producto')?.invalid && this.ProductoForm.get('producto')?.touched
+}
+
+get categoriaNoValido(){
+  return this.ProductoForm.get('categoria')?.invalid && this.ProductoForm.get('categoria')?.touched
+}
+get cantidadNoValido(){
+  return this.ProductoForm.get('cantidad')?.invalid && this.ProductoForm.get('cantidad')?.touched
+}
+get priceNoValido(){
+  return this.ProductoForm.get('precio')?.invalid && this.ProductoForm.get('precio')?.touched
+}
+get stockNoValido(){
+  return this.ProductoForm.get('stock')?.invalid && this.ProductoForm.get('stock')?.touched
+}
 }

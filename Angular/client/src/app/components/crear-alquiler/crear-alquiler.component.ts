@@ -27,12 +27,12 @@ export class CrearAlquilerComponent implements OnInit {
     this.AlquilerForm = this.fb.group({
       tipocliente: ['', Validators.required],
       nombre: ['', Validators.required],
-      telefono: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
       direccion: ['', Validators.required],
       codigoherramienta: ['', Validators.required],
       diasprestamo: ['', Validators.required],
       deposito: ['', Validators.required],
-      total: ['', Validators.required]
+      total: ['']
     })
     this.id = this.aRoute.snapshot.paramMap.get('id')
    }
@@ -54,6 +54,16 @@ export class CrearAlquilerComponent implements OnInit {
 
   agregarAlquiler(){
     console.log(this.AlquilerForm);
+
+    if(this.AlquilerForm.invalid){
+
+      return Object.values(this.AlquilerForm.controls).forEach(control =>{
+
+        control.markAllAsTouched();
+
+      })
+
+    }
 
     const ALQUILER : Alquiler ={
       tipocliente : this.AlquilerForm.get('tipocliente')?.value,
@@ -102,5 +112,29 @@ export class CrearAlquilerComponent implements OnInit {
       })
     }
   }
+
+  //Validaciones
+get tipoCNoValido(){
+  return this.AlquilerForm.get('tipocliente')?.invalid && this.AlquilerForm.get('tipocliente')?.touched
+}
+get nombreNoValido(){
+  return this.AlquilerForm.get('nombre')?.invalid && this.AlquilerForm.get('nombre')?.touched
+}
+get telefonoNoValido(){
+  return this.AlquilerForm.get('telefono')?.invalid && this.AlquilerForm.get('telefono')?.touched
+}
+get direccionNoValido(){
+  return this.AlquilerForm.get('direccion')?.invalid && this.AlquilerForm.get('direccion')?.touched
+}
+get codigoHNoValido(){
+  return this.AlquilerForm.get('codigoherramienta')?.invalid && this.AlquilerForm.get('codigoherramienta')?.touched
+}
+get diaspNoValido(){
+  return this.AlquilerForm.get('diasprestamo')?.invalid && this.AlquilerForm.get('diasprestamo')?.touched
+}
+get depositoNoValido(){
+  return this.AlquilerForm.get('deposito')?.invalid && this.AlquilerForm.get('deposito')?.touched
+}
+
 }
 
