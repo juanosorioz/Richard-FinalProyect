@@ -53,6 +53,17 @@ export class CrearFacturaComponent implements OnInit {
   agregarFactura(){
     console.log(this.FacturaForm);
 
+
+    if(this.FacturaForm.invalid){
+
+      return Object.values(this.FacturaForm.controls).forEach(control =>{
+
+        control.markAllAsTouched();
+
+      })
+
+    }
+
     const FACTURA : Factura ={
       tipocliente : this.FacturaForm.get('tipocliente')?.value,
       nombre : this.FacturaForm.get('factura')?.value,
@@ -98,5 +109,29 @@ export class CrearFacturaComponent implements OnInit {
       })
     }
   }
+
+    //Validaciones
+get tipoCNoValido(){
+  return this.FacturaForm.get('tipocliente')?.invalid && this.FacturaForm.get('tipocliente')?.touched
+}
+get nombreNoValido(){
+  return this.FacturaForm.get('factura')?.invalid && this.FacturaForm.get('factura')?.touched
+}
+get telefonoNoValido(){
+  return this.FacturaForm.get('telefono')?.invalid && this.FacturaForm.get('telefono')?.touched
+}
+get direccionNoValido(){
+  return this.FacturaForm.get('direccion')?.invalid && this.FacturaForm.get('direccion')?.touched
+}
+get codigoHNoValido(){
+  return this.FacturaForm.get('productoF')?.invalid && this.FacturaForm.get('productoF')?.touched
+}
+get cantidadNoValido(){
+  return this.FacturaForm.get('cantidades')?.invalid && this.FacturaForm.get('cantidades')?.touched
+}
+get priceNoValido(){
+  return this.FacturaForm.get('price')?.invalid && this.FacturaForm.get('price')?.touched
+}
+
 }
 

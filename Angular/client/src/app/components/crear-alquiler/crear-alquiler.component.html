@@ -1,52 +1,57 @@
 <div class="container">
   <div class="container1">
     <div class="row col-xs-12">
-        <span class="titulo">{{titulo | uppercase}}</span>
-      <div class="part1">
-        <form action="" [formGroup]="AlquilerForm" (ngSubmit)="agregarAlquiler()">
-          <div id="codec"class="form-floating col-7">
-              <input type="text" class="form-control" id="floatingCodec" placeholder="Tipo Cliente"formControlName="tipocliente">
-              <div class="text-danger" *ngIf="AlquilerForm.get('tipocliente')?.hasError('required') && AlquilerForm.get('tipocliente')?.touched">El tipo de cliente es obligatorio</div>
-              <label for="floatingCodec">Tipo cliente</label>
+      <div class="card">
+        <div class="card-tittle bg-dark">
+          <span class="titulo text-white">{{titulo | uppercase}}</span>
+        </div>
+        <form id="formulario" class="row" action="" [formGroup]="AlquilerForm" (ngSubmit)="agregarAlquiler()">
+          <div id="codec"class="form-group col-3">
+              <label for="floatingCodec">Tipo cliente:</label>
+              <input type="text" class="form-control" id="tipocliente" name="tipocliente" placeholder="Tipo Cliente"formControlName="tipocliente" [class.is-invalid]="tipoCNoValido">
+              <small *ngIf="tipoCNoValido" class="text-danger">Ingrese el tipo de cliente</small>
             </div>
-            <div id="codec"class="form-floating col-7">
-              <input type="text" class="form-control" id="floatingCodec" placeholder="Nombre"formControlName="nombre">
-              <div class="text-danger" *ngIf="AlquilerForm.get('nombre')?.hasError('required') && AlquilerForm.get('nombre')?.touched">El nombre es obligatorio</div>
-              <label for="floatingCodec">Nombre</label>
+            <div id="codec"class="form-group col-9">
+              <label for="floatingCodec">Nombre:</label>
+              <input type="text" class="form-control" id="nameAlquiler" name="nameAlquiler" placeholder="Nombre"formControlName="nombre" [class.is-invalid]="nombreNoValido">
+              <small *ngIf="nombreNoValido" class="text-danger">Ingrese el tipo de nombre valido</small>
             </div>
-            <div id="codec"class="form-floating col-7">
-              <input type="number" class="form-control" id="floatingCodec" placeholder="Telefono"formControlName="telefono">
-              <div class="text-danger" *ngIf="AlquilerForm.get('telefono')?.hasError('required') && AlquilerForm.get('telefono')?.touched">El telefono es obligatorio</div>
-              <label for="floatingCodec">Telefono</label>
+            <div id="codec"class="form-group col-4">
+              <label for="floatingCodec">Telefono:</label>
+              <input type="number" class="form-control" id="telefonoAlquiler" name="telefonoAlquiler" placeholder="Telefono"formControlName="telefono" [class.is-invalid]="telefonoNoValido">
+              <small *ngIf="telefonoNoValido" class="text-danger">Ingrese el Telefono debe tener un minimo y un maximo de 5 a 10 caracteres</small>
             </div>
-            <div id="codec"class="form-floating col-7">
-              <input type="text" class="form-control" id="floatingCodec" placeholder="Direccion"formControlName="direccion">
-              <div class="text-danger" *ngIf="AlquilerForm.get('direccion')?.hasError('required') && AlquilerForm.get('direccion')?.touched">La direccion es obligatoria</div>
-              <label for="floatingCodec">Direccion</label>
+            <div id="codec"class="form-group col-4">
+              <label for="floatingCodec">Direccion:</label>
+              <input type="text" class="form-control" id="direccionAlquiler" name="direccionAlquiler" placeholder="Direccion"formControlName="direccion" [class.is-invalid]="direccionNoValido">
+              <small *ngIf="direccionNoValido" class="text-danger">Ingrese una dirección valida</small>
             </div>
-            <select id="codec" class="form-control" formControlName="codigoherramienta" [(ngModel)]="seleccionado" aria-label="Default select example">
-              <option selected disabled>Productos</option>
-              <option *ngFor="let item of listaProducto" [value]="item.nombre">{{item.nombre}}</option>
-              <div class="text-danger" *ngIf="AlquilerForm.get('codigoherramienta')?.hasError('required') && AlquilerForm.get('codigoherramienta')?.touched">El Producto es obligatorio</div>
-          </select>
-            <div id="day"class="form-floating col-7">
-              <input type="number" class="form-control" id="floatingDay" placeholder="Dias"formControlName="diasprestamo">
-              <div class="text-danger" *ngIf="AlquilerForm.get('diasprestamo')?.hasError('required') && AlquilerForm.get('diasprestamo')?.touched">Los dias de prestamo es obligatorio</div>
-              <label for="floatingDay">Dias de Prestamo</label>
+            <div class="form-group col-4">
+              <label for="" id="label">Productos:</label>
+              <select id="productoAlquiler" name="productoAlquiler" class="form-control" formControlName="codigoherramienta" [class.is-invalid]="codigoHNoValido" [(ngModel)]="seleccionado" aria-label="Default select example">
+                <option selected disabled>Productos</option>
+                <option *ngFor="let item of listaProducto" [value]="item.nombre">{{item.nombre}}</option>
+            </select>
+            <small class="text-danger">Recuerda llenar este campo</small>
             </div>
-            <div id="dep"class="form-floating col-7">
-              <input type="number" class="form-control" id="floatingDep" placeholder="Deposito" formControlName="deposito">
-              <div class="text-danger" *ngIf="AlquilerForm.get('deposito')?.hasError('required') && AlquilerForm.get('deposito')?.touched">El deposito es obligatorio</div>
-              <label for="floatingDep">Deposito</label>
+            <div id="day"class="form-group col-4">
+              <label for="floatingDay">Dias de Prestamo:</label>
+              <input type="number" class="form-control" id="diaspAlquiler" name="diaspAlquiler" placeholder="Dias"formControlName="diasprestamo" [class.is-invalid]="diaspNoValido">
+              <small *ngIf="diaspNoValido" class="text-danger">Ingrese los dias de prestamo</small>
             </div>
-            <div id="total"class="form-floating col-7">
-              <input  type="number" class="form-control" id="floatingTot" placeholder="Total" formControlName="total" readonly>
-              <label for="floatingTot">Total del prestamo</label>
+            <div id="dep"class="form-group col-4">
+              <label for="floatingDep">Deposito:</label>
+              <input type="number" class="form-control" id="depositoAlquiler" name="depositoAlquiler" placeholder="Deposito" formControlName="deposito" [class.is-invalid]="depositoNoValido">
+              <small *ngIf="depositoNoValido" class="text-danger">Ingrese el deposito</small>
+            </div>
+            <div id="total"class="form-group col-4">
+              <label for="floatingTot">Total del prestamo:</label>
+              <input  type="number" class="form-control" id="floatingCodec" placeholder="Total" formControlName="total" readonly>
             </div>
         <div class="container12">
-          <div class="row col-xs-12">
-              <button id="botong" type="submit" class="btn btn-success col-xs-4 mb-5">Guardar</button>
-              <button id="botonc" type="button" class="btn btn-secondary col-xs-4" routerLink="/lista-alquiler">Cancelar</button>
+          <div class="row  button col-xs-12">
+              <button id="botong" type="submit" class="btn btn-success col-2">Guardar</button>
+              <button id="botonc" type="button" class="btn btn-secondary col-2" routerLink="/lista-alquiler">Cancelar</button>
           </div>
         </div>
       </form>
@@ -63,3 +68,4 @@
     </div>
   </div>
 </div>
+
