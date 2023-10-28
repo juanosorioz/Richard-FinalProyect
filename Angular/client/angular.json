@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -100,6 +100,9 @@
     }
   },
   "cli": {
-    "analytics": "f98e3b4f-f3a0-4714-9a69-8d0d1c923df0"
+    "analytics": "f98e3b4f-f3a0-4714-9a69-8d0d1c923df0",
+    "cache": {
+      "enabled": false
+    }
   }
 }

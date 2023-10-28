@@ -5,6 +5,7 @@ import { Alquiler } from 'src/app/models/alquiler';
 import { Producto } from 'src/app/models/producto';
 import { AlquilerServiceService } from 'src/app/services/alquiler-service.service';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-crear-alquiler',
@@ -80,17 +81,35 @@ export class CrearAlquilerComponent implements OnInit {
     {
       //editar
       this._alquilerService.editarAlquiler(this.id, ALQUILER).subscribe(data =>{
-        console.log("actualizado");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Editado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-alquiler'])
       })
     }else{
       //crear
       console.log(ALQUILER);
       this._alquilerService.guardarAlquiler(ALQUILER).subscribe(data =>{
-        console.log('Guardado');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Guardado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-alquiler'])
       },error =>{
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo Salio Mal, Revisa el error',
+          footer: 'No se guardaron los datos'
+        })
         this.AlquilerForm.reset();
       })
     }

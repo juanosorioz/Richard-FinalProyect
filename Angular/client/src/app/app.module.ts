@@ -13,26 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListaAlquilerComponent } from './components/lista-alquiler/lista-alquiler.component';
 import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
 import { ListaFacturaComponent } from './components/lista-factura/lista-factura.component';
-import { RegistrarComponent } from './components/registrar/registrar.component'
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrearProductoComponent,
-    ListaProductoComponent,
-    InicioComponent,
-    CrearAlquilerComponent,
-    SessionComponent,
-    ListaAlquilerComponent,
-    CrearFacturaComponent,
-    ListaFacturaComponent,
-    RegistrarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent],
+  imports: [BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

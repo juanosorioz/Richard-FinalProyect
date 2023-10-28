@@ -1,0 +1,13 @@
+.navbar{box-shadow: 2px 2px 2px 2px rgb(90, 40, 7);}
+.container{margin-right: 200px;}
+.header .nav-links li{display: inline-block;padding: 0 20px;}
+.header .nav-links li:hover{transform: scale(1.1);}
+.header .nav-links a{font-size: 700;text-decoration: none;}
+.header .nav-links a:hover{text-decoration: underline;}
+.header{margin-top: 10px;}
+#navi, #nava{margin-left: 20px;color: white;}
+#navs,#navse{margin-left: 808px;color: white;}
+#navc, #navo{color: white;}
+#navo{margin-right: 80px;}
+.span, .titulo{width: 100%;padding: 8px;border-radius: 0.3em;background-color:rgb(59, 58, 58);}
+.navbar-nav .btn{margin-top: 380px;}

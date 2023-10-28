@@ -1,33 +1,11 @@
- .titulou{
-    margin-left: 300px;
-    color: white;
-}
-.card{
-    width: 60%;
-    margin: 80px 250px;
-}
-.card-header{
-    width: 100%;
-    margin-top: 10px;
-    background-color: rgb(3, 3, 3);
-}
-.formu{
- width: 100%;
- margin-top: 10px;
- margin-left: 1px;
- border: solid 0.1em black;
-}
-#botong{
-    margin-left: 10px;
-    margin-top: 20px;
-}
-#botonc{
-    margin-left: 30px;
-    margin-top: 20px;
-}
-#tipocli{
-  width: 26%;
-}
-#namec{
- width: 74%;
-}
+ .titulou{margin-left: 300px;color: white;}
+.card{width: 60%;margin: 80px 250px;}
+.card-header{width: 100%;margin-top: 10px;background-color: rgb(3, 3, 3);}
+.formu{width: 100%;margin-top: 10px;margin-left: 1px;border: solid 0.1em black;}
+#botong,#botonc{margin-left: 10px;margin-top: 20px;}
+#botonc{margin-left: 30px;}
+#tipocli{width: 26%;}
+#namec{width: 74%;}
+#agregar{width: 40px;height: 25px;margin-left: auto;}
+.contenedor{display: flex;align-items: center;}
+#produ{width: 275%;}

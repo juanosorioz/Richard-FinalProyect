@@ -1,34 +1,8 @@
-.container1{
-    margin-top: 50px;
-    position: relative;
-}
-.card-tittle{
-    text-align: center;
-    margin-top: 10px;
-}
-.form-control{
-    border: solid 0.1em;
-}
-.titulo{
-    padding: 5px;
-    border-radius: 0.2em;
-    margin-top: 10px;
-    margin-left: 30px;
-}
-form{
-    width: 70%;
-}
-.button{
-    margin-top: 15px;
-    margin-left: 15px;
-}
-#botonc{
-    margin-left: 100px;
-}
-#product{
-    width: 40%;
-    height: 200px;
-    position: absolute;
-    left: 75%;
-    top: 25%;
-}
+.container1{margin-top: 50px;position: relative;}
+.card-tittle{text-align: center;margin-top: 10px;}
+.form-control{border: solid 0.1em;}
+.titulo{padding: 5px;border-radius: 0.2em;margin-top: 10px;margin-left: 30px;}
+form{width: 70%;}
+.button{margin-top: 15px;margin-left: 15px;}
+#botonc{margin-left: 100px;}
+#product{width: 40%;height: 200px;position: absolute;left: 75%;top: 25%;}

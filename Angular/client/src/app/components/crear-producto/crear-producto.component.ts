@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-producto',
@@ -13,6 +14,7 @@ export class CrearProductoComponent implements OnInit {
 
   ProductoForm : FormGroup;
   titulo = 'Crear Producto';
+
   id: string | null;
   constructor(private fb: FormBuilder,
               private _productoService: ProductoServiceService,
@@ -57,17 +59,35 @@ export class CrearProductoComponent implements OnInit {
     {
       //editar
       this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data =>{
-        console.log("actualizado");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Editado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-producto'])
       })
     }else{
       //crear
       console.log(PRODUCTO);
       this._productoService.guardarProducto(PRODUCTO).subscribe(data =>{
-        console.log('Guardado');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Guardado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-producto'])
       },error =>{
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo Salio Mal, Revisa el error',
+          footer: 'No se guardaron los datos'
+        })
         this.ProductoForm.reset();
       })
     }

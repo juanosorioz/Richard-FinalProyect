@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Factura } from 'src/app/models/factura';
 import { FacturaServiceService } from 'src/app/services/factura-service.service';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-factura',
@@ -19,6 +20,7 @@ export class CrearFacturaComponent implements OnInit {
   listaProducto: Producto[] = [];
   seleccionado = 'producto';
 
+
   constructor(private fb: FormBuilder,
               private _facturaService: FacturaServiceService,
               private _productoService: ProductoServiceService,
@@ -27,7 +29,7 @@ export class CrearFacturaComponent implements OnInit {
     this.FacturaForm = this.fb.group({
       tipocliente: ['', Validators.required],
       factura: ['', Validators.required],
-      telefono: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
       direccion: ['', Validators.required],
       productoF: ['', Validators.required],
       cantidades: ['', Validators.required],
@@ -48,6 +50,12 @@ export class CrearFacturaComponent implements OnInit {
       this.listaProducto = data;
     }, error =>{
       console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo Salio Mal',
+        footer: 'Revisa El Error'
+      })
     })
   }
   agregarFactura(){
@@ -78,17 +86,35 @@ export class CrearFacturaComponent implements OnInit {
     {
       //editar
       this._facturaService.editarFactura(this.id, FACTURA).subscribe(data =>{
-        console.log("actualizado");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Editado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-factura'])
       })
     }else{
       //crear
       console.log(FACTURA);
       this._facturaService.guardarFactura(FACTURA).subscribe(data =>{
-        console.log('Guardado');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha Guardado Correctamente',
+          showConfirmButton: false,
+          timer: 1100
+        })
         this.router.navigate(['/lista-factura'])
       },error =>{
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo Salio Mal, Revisa el error',
+          footer: 'No se guardaron los datos'
+        })
         this.FacturaForm.reset();
       })
     }
