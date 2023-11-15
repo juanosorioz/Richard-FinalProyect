@@ -29,6 +29,10 @@ const facturaSchema = mongoose.Schema({
         type:Number,
         require: true
     },
+    stockProcesado: {
+        type:Boolean,
+        default: false
+    },
     fechaCreacion: {
         type:Date,
         default: Date.now()

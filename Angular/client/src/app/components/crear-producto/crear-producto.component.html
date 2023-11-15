@@ -28,7 +28,7 @@
             </div>
             <div id="herra"class="form-group col-12">
               <label class="label" for="floatingCode">Valor:</label>
-              <input type="text" class="form-control" id="floatingCode" placeholder="Codigo"formControlName="precio" [class.is-invalid]="priceNoValido">
+              <input type="number" class="form-control" id="floatingCode" placeholder="Codigo"formControlName="precio" [class.is-invalid]="priceNoValido">
               <small *ngIf="priceNoValido" class="text-danger">Ingrese un valor</small>
             </div>
             <div id="canti"class="form-group col-12">

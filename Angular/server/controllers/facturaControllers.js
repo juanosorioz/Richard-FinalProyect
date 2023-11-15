@@ -1,12 +1,19 @@
 const Factura = require('../models/Factura')
+const Producto = require('../models/Producto')
 
 exports.crearFactura = async (req, res) => {
     try {
-        let factura;
-        factura = new Factura(req.body);
-        await factura.save();
-        res.send(factura)
+        const { productoF, cantidades } = req.body;
 
+        const productoRelacionado = await Producto.findOne({ nombre: productoF });
+        if (!productoRelacionado || cantidades > productoRelacionado.cantidad) {
+            return res.status(400).json({ error: 'La cantidad solicitada excede la cantidad disponible del producto' });
+        }else{
+            let factura;
+            factura = new Factura(req.body);
+            await factura.save();
+            res.send(factura)
+        }
     } catch (error) {
         console.log(error);
         res.status(500).send('Error');

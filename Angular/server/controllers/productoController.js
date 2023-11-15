@@ -1,4 +1,5 @@
 const Producto = require('../models/Producto')
+const Factura = require('../models/Factura')
 
 exports.crearProducto = async (req, res) => {
     try {
@@ -61,6 +62,7 @@ exports.actualizarProducto = async(req, res) =>{
     }
 }
 
+
 exports.eliminarProducto = async (req,res) =>{
     try {
         let producto = await Producto.findById(req.params.id)
@@ -75,5 +77,33 @@ exports.eliminarProducto = async (req,res) =>{
     } catch (error) {
         console.log(error);
         res.status(500).send('Error');
+    }
+
+}
+
+exports.actualizarStock = async (req,res)=>{
+    try {
+        const facturas = await Factura.find();
+        const productos = await Producto.find();
+
+        for (const factura of facturas){
+            const facturaProcesada = await Factura.findById(factura._id)
+
+            if (!facturaProcesada.stockProcesado){
+                const productoRelacionado = productos.find(producto => producto.nombre === factura.productoF)
+            
+                if(productoRelacionado){
+                    productoRelacionado.cantidad -= factura.cantidades;
+                    await facturaProcesada.updateOne({stockProcesado: true})
+                }
+            }
+        }
+
+        await Promise.all(productos.map(producto => producto.save()))
+
+        res.json({ message: 'Stocks actualizados correctamente' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 }

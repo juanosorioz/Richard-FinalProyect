@@ -1,5 +1,8 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Factura } from 'src/app/models/factura';
 import { Producto } from 'src/app/models/producto';
+import { FacturaServiceService } from 'src/app/services/factura-service.service';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
 import Swal from 'sweetalert2';
 
@@ -11,11 +14,35 @@ import Swal from 'sweetalert2';
 export class ListaProductoComponent implements OnInit {
 
   listaProducto: Producto[] = [];
+  cantidadF: Factura[] = [];
+  cantidadP: Producto[] = [];
+  nombreF: Factura[]=[];
+  nombreP: Producto[]=[];
+  result: any;
+  listaFactura: Factura[]=[];
 
-  constructor(private _productoService: ProductoServiceService) { }
+  constructor(private _productoService: ProductoServiceService,
+              private _facturaService: FacturaServiceService,) {}
 
   ngOnInit(): void {
     this.obtenerProductos();
+    this.obtenerFacturas();
+  }
+
+
+  obtenerFacturas(){
+    this._facturaService.getFacturas().subscribe(data =>{
+      console.log(data);
+      this.listaFactura = data;
+    }, error =>{
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo Salio Mal',
+        footer: 'Revisa El Error'
+      })
+    })
   }
 
   obtenerProductos(){

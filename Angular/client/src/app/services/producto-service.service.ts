@@ -31,5 +31,9 @@ export class ProductoServiceService {
   editarProducto(id: string, producto: Producto): Observable <any>{
     return this.http.put(this.url + id, producto);
   }
+
+  actualizarStock():Observable<any>{
+    return this.http.post(`${this.url}/actualizarStock`,{});
+  }
 }
 

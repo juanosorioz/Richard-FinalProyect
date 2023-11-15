@@ -19,6 +19,8 @@ export class CrearFacturaComponent implements OnInit {
   id: string | null;
   listaProducto: Producto[] = [];
   seleccionado = 'producto';
+  cantidadF: any;
+  nombreF: any;
 
 
   constructor(private fb: FormBuilder,
@@ -58,6 +60,9 @@ export class CrearFacturaComponent implements OnInit {
       })
     })
   }
+
+
+
   agregarFactura(){
     console.log(this.FacturaForm);
 
@@ -106,7 +111,9 @@ export class CrearFacturaComponent implements OnInit {
           showConfirmButton: false,
           timer: 1100
         })
+        this.actualizarStock();
         this.router.navigate(['/lista-factura'])
+
       },error =>{
         console.log(error);
         Swal.fire({
@@ -135,6 +142,17 @@ export class CrearFacturaComponent implements OnInit {
       })
     }
   }
+
+  actualizarStock(): void {
+    this._productoService.actualizarStock().subscribe(
+        response => {
+            console.log(response.message); // Mensaje de éxito desde el backend
+        },
+        error => {
+            console.error(error);
+        }
+    );
+}
 
     //Validaciones
 get tipoCNoValido(){
