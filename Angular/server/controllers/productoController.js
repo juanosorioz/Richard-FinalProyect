@@ -1,5 +1,7 @@
 const Producto = require('../models/Producto')
 const Factura = require('../models/Factura')
+const nodemailer = require('nodemailer');
+
 
 exports.crearProducto = async (req, res) => {
     try {
@@ -81,6 +83,18 @@ exports.eliminarProducto = async (req,res) =>{
 
 }
 
+const tls = require('tls');
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'siahcoalerts@gmail.com',
+        pass: 'fuis qpro xjmo dzim'
+    },    
+    tls: {
+    rejectUnauthorized: false
+    }
+});
+
 exports.actualizarStock = async (req,res)=>{
     try {
         const facturas = await Factura.find();
@@ -94,12 +108,32 @@ exports.actualizarStock = async (req,res)=>{
             
                 if(productoRelacionado){
                     productoRelacionado.cantidad -= factura.cantidades;
+
+                    if (productoRelacionado.cantidad <= productoRelacionado.stock) {
+                        
+                        const mailOptions = {
+                            from: 'siahcoalerts@gmail.com',
+                            to: 'siahcooficcial@gmail.com', 
+                            subject: 'Alerta de Stock',
+                            text: `¡Alerta! El stock del producto ${productoRelacionado.nombre} está por debajo del límite, su cantidad actual es de ${productoRelacionado.cantidad}.`
+                        };
+    
+                        transporter.sendMail(mailOptions, function(error, info) {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log('Correo electrónico enviado: ' + info.response);
+                            }
+                        });
+                    }
+
                     await facturaProcesada.updateOne({stockProcesado: true})
                 }
             }
         }
 
         await Promise.all(productos.map(producto => producto.save()))
+
 
         res.json({ message: 'Stocks actualizados correctamente' });
     } catch (error) {

@@ -1,5 +1,19 @@
 const Factura = require('../models/Factura')
 const Producto = require('../models/Producto')
+const nodemailer = require('nodemailer');
+const tls = require('tls');
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'siahcoalerts@gmail.com',
+        pass: 'fuis qpro xjmo dzim'
+    },
+    tls: {
+    rejectUnauthorized: false
+    }
+});
+
 
 exports.crearFactura = async (req, res) => {
     try {
@@ -12,6 +26,24 @@ exports.crearFactura = async (req, res) => {
             let factura;
             factura = new Factura(req.body);
             await factura.save();
+
+            if (productoRelacionado.cantidad <= productoRelacionado.stock) {
+                const mailOptions = {
+                    from: 'siahcoalerts@gmail.com',
+                    to: 'siahcooficcial@gmail.com', 
+                    subject: 'Alerta de Stock',
+                    text: `¡Alerta! El stock del producto ${productoF} está por debajo del límite, su cantidad actual es de ${productoRelacionado.cantidad}.`
+                };
+
+                transporter.sendMail(mailOptions, function(error, info) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log('Correo electrónico enviado: ' + info.response);
+                    }
+                });
+            }
+
             res.send(factura)
         }
     } catch (error) {
@@ -77,7 +109,7 @@ exports.eliminarFactura = async (req,res) =>{
             res.status(500).send('La Factura no Existe');
         }
 
-        await Factura.findByIdAndRemove({_id:req.params.id})
+        await Factura.findByIdAndDelete({_id:req.params.id})
         
         res.json({msg : "Factura Eliminada"});
     } catch (error) {

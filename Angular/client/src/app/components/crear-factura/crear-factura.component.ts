@@ -119,8 +119,8 @@ export class CrearFacturaComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Algo Salio Mal, Revisa el error',
-          footer: 'No se guardaron los datos'
+          text: 'Error al Guardar',
+          footer: 'Es posible que la cantidad exceda a la existente en los productos'
         })
         this.FacturaForm.reset();
       })

@@ -101,6 +101,7 @@ export class CrearAlquilerComponent implements OnInit {
           showConfirmButton: false,
           timer: 1100
         })
+        this.actualizarStock();
         this.router.navigate(['/lista-alquiler'])
       },error =>{
         console.log(error);
@@ -131,6 +132,17 @@ export class CrearAlquilerComponent implements OnInit {
       })
     }
   }
+
+  actualizarStock(): void {
+    this._productoService.actualizarStock().subscribe(
+        response => {
+            console.log(response.message); // Mensaje de éxito desde el backend
+        },
+        error => {
+            console.error(error);
+        }
+    );
+}
 
   //Validaciones
 get tipoCNoValido(){
