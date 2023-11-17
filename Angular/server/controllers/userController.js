@@ -90,9 +90,6 @@ exports.signIn = async (req,res) =>{
 
             const token = jwt.sign(user.toJSON(), 'juan', { expiresIn });
 
-            //user.accessToken = token;
-            //await user.save();
-
 
             res.json({token, expiresIn})
         }else{
@@ -105,19 +102,6 @@ exports.signIn = async (req,res) =>{
     }
 }
 
-exports.signOut = async (req, res) => {
-    try {
-        const user = await User.findById(req.data._id);
-
-        user.accessToken = '';
-        await user.save();
-
-        res.json('Sesión cerrada exitosamente');
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
 
 exports.test = (req, res) =>{
     if(req.data.role === 'user'){

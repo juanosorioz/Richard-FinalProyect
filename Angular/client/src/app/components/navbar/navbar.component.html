@@ -43,7 +43,7 @@
           <a id="nava" class="text-white" routerLink="/lista-alquiler" routerLinkActive="active">Alquiler</a>
         </li>
         <li class="nav-item">
-          <a id="navo" class="text-white" routerLink="/admin" routerLinkActive="active">Admin</a>
+          <a id="navo" class="text-white" routerLink="/admin" routerLinkActive="active" *ngIf="showAdminLink()" >Admin</a>
         </li>
       </ul>
     </div>
@@ -66,7 +66,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Notificaciones</a>
           </li>
-          <button type="submit" class="btn btn-primary" routerLink="/session">Cerrar Sesion</button>
+          <button type="button" class="btn btn-primary" (click)="singout()" routerLinkActive="activate">Cerrar Sesion</button>
         </ul>
       </div>
     </div>

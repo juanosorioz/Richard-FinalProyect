@@ -1,6 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs';
+
+interface JwtPayload {
+  userName: string;
+  role: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +16,7 @@ export class AuthService {
 
   private URL = 'http://localhost:4000'
 
-
+  user = {userName: '',pass: ''}
 
   constructor(
     private http: HttpClient,
@@ -26,4 +33,20 @@ export class AuthService {
    }
     return true
   }
+
+  setUser(newUser: {userName: string, pass: string}){
+    this.user = newUser
+  }
+
+  getUser(){
+    return this.user
+  }
+
+  getUserRole(): string {
+    const token:any = localStorage.getItem('token');
+    const { role }: JwtPayload = jwtDecode(token);
+    return role;
+  }
+
+
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { jwtDecode } from 'jwt-decode';
+import Swal from 'sweetalert2';
 
 interface JwtPayload {
   userName: string;
@@ -29,6 +30,14 @@ export class RoleGuard implements CanActivate{
 
     if(!this.authServices.isAuth() || role !== expectedRole){
       console.log('Usuario no autorizado');
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "No estas autorizado",
+        showConfirmButton: false,
+        timer: 1000
+      });
+
       this.router.navigate(['inicio']);
       return false;
     }

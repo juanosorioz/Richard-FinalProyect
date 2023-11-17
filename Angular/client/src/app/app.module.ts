@@ -17,15 +17,18 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AdminComponent } from './components/admin/admin.component';
 import { TokenInterService } from './services/token-inter.service';
+import { AuthService } from './services/auth.service';
+import { CrearAdminComponent } from './components/crear-admin/crear-admin.component';
 @NgModule({
-  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent, AdminComponent],
+  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent, AdminComponent, CrearAdminComponent],
   imports: [BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule, FormsModule],
   providers: [
     //JWT
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
     //TOKEN
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterService, multi: true},
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

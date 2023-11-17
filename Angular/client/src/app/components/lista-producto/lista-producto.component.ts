@@ -14,11 +14,6 @@ import Swal from 'sweetalert2';
 export class ListaProductoComponent implements OnInit {
 
   listaProducto: Producto[] = [];
-  cantidadF: Factura[] = [];
-  cantidadP: Producto[] = [];
-  nombreF: Factura[]=[];
-  nombreP: Producto[]=[];
-  result: any;
   listaFactura: Factura[]=[];
 
   constructor(private _productoService: ProductoServiceService,
