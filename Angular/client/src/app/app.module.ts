@@ -8,16 +8,25 @@ import { ListaProductoComponent } from './components/lista-producto/lista-produc
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquiler.component';
 import { SessionComponent } from './components/session/session.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ListaAlquilerComponent } from './components/lista-alquiler/lista-alquiler.component';
 import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
 import { ListaFacturaComponent } from './components/lista-factura/lista-factura.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { AdminComponent } from './components/admin/admin.component';
+import { TokenInterService } from './services/token-inter.service';
 @NgModule({
-  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent],
-  imports: [BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule],
-  providers: [],
+  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent, AdminComponent],
+  imports: [BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule, FormsModule],
+  providers: [
+    //JWT
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService,
+    //TOKEN
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

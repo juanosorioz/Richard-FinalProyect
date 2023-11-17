@@ -11,17 +11,17 @@
                   <form action="">
                         <div class="input-box">
                             <span class="icon">
-                              <i class="fa-solid fa-envelope"></i>
+                              <i class="fa-solid fa-user"></i>
                             </span>
-                            <input type="email" required>
-                            <label>Email</label>
+                            <input type="text" id="userName" name="userName" [(ngModel)]="user.userName">
+                            <label>Username</label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon">
                               <i class="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" required>
+                            <input type="password" id="pass" name="pass" [(ngModel)]="user.pass">
                             <label>Password</label>
                         </div>
 
@@ -31,7 +31,7 @@
                           </label>
                           <a href="">Recuperar contraseña</a>
                         </div>
-                        <button type="submit" class="btn" routerLink="/inicio">Login</button>
+                        <button type="submit" class="btn" (click)="logIn()">Login</button>
                   </form>
           </div>
         </div>
