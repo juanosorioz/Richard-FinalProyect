@@ -31,9 +31,9 @@ export class CrearAlquilerComponent implements OnInit {
       telefono: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
       direccion: ['', Validators.required],
       codigoherramienta: ['', Validators.required],
-      diasprestamo: ['', Validators.required],
+      diasprestamo: [null, Validators.required],
       deposito: ['', Validators.required],
-      total: ['']
+      total: [null, Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get('id')
    }
@@ -74,7 +74,7 @@ export class CrearAlquilerComponent implements OnInit {
       codigoherramienta : this.AlquilerForm.get('codigoherramienta')?.value,
       diasprestamo : this.AlquilerForm.get('diasprestamo')?.value,
       deposito : this.AlquilerForm.get('deposito')?.value,
-      total : this.AlquilerForm.get('total')?.value
+      total : this.calcularPrecio()
     }
 
     if(this.id !== null)
@@ -127,7 +127,7 @@ export class CrearAlquilerComponent implements OnInit {
           codigoherramienta: data.codigoherramienta,
           diasprestamo: data.diasprestamo,
           deposito: data.deposito,
-          total: data.total
+          total: this.calcularPrecio()
         })
       })
     }
@@ -142,6 +142,30 @@ export class CrearAlquilerComponent implements OnInit {
             console.error(error);
         }
     );
+}
+
+calcularPrecio(): number {
+  const cantidad = this.AlquilerForm.get('diasprestamo')?.value || 0;
+  const productoSeleccionado = this.listaProducto.find(producto => producto.nombre === this.AlquilerForm.get('codigoherramienta')?.value);
+
+  console.log('Cantidad:', cantidad);
+  console.log('Producto seleccionado:', productoSeleccionado);
+
+  if (productoSeleccionado) {
+    console.log('Precio del producto:', productoSeleccionado.precio);
+    const multi = cantidad * productoSeleccionado.precio
+    console.log(multi);
+    return multi;
+  } else {
+    console.error('No se pudo encontrar el producto seleccionado.');
+    return 0;
+  }
+}
+
+actualizarPrecio(){
+  this.AlquilerForm.patchValue({
+    total: this.calcularPrecio()
+  })
 }
 
   //Validaciones

@@ -42,13 +42,12 @@
           </div>
           <div id="cedue"class="form-group col-4" >
             <label for="floatingCedue" >Cantidad:</label>
-            <input type="number" class="form-control" id="floatingCedue" placeholder="Cantidad" formControlName="cantidades" [class.is-invalid]="cantidadNoValido">
+            <input type="number" class="form-control" id="floatingCedue" placeholder="Cantidad" formControlName="cantidades" [class.is-invalid]="cantidadNoValido" (change)="actualizarPrecio()">
             <small *ngIf="cantidadNoValido" class="text-danger">Ingrese una cantidad</small>
           </div>
           <div id="cedue"class="form-group col-4">
             <label for="floatingCedue">Precio:</label>
-            <input type="number" class="form-control" id="floatingCedue" placeholder="Precio" formControlName="price" [class.is-invalid]="priceNoValido">
-            <small *ngIf="priceNoValido" class="text-danger">Ingrese su precio</small>
+            <input type="number" class="form-control" id="floatingCedue" placeholder="Precio" formControlName="price" [value]="FacturaForm.get('price')?.value" readonly>
           </div>
           <div class="container3">
             <div class="row col-xs-12">

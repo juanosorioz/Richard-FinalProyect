@@ -86,7 +86,7 @@ exports.signIn = async (req,res) =>{
         const user = await User.findOne({userName, pass});
 
         if(user){
-            const expiresIn = 600;
+            const expiresIn = 1800;
 
             const token = jwt.sign(user.toJSON(), 'juan', { expiresIn });
 

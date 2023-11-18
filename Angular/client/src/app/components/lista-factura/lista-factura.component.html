@@ -34,7 +34,7 @@
                                         <td>{{factura.direccion}}</td>
                                         <td>{{factura.productoF}}</td>
                                         <td>{{factura.cantidades}}</td>
-                                        <td>{{factura.price}}</td>
+                                        <td>{{factura.price | currency: 'COP' }}</td>
                                         <td><i [routerLink]="['/editar-factura', factura._id]" class="fa-solid fa-pen-to-square text-primary"></i></td>
                                         <td><i (click)="eliminarFactura(factura._id)" class="fa-solid fa-trash text-danger"></i></td>
                                       </tr>

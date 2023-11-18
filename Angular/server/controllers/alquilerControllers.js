@@ -1,9 +1,14 @@
 const Alquiler = require('../models/Alquiler')
+const Producto = require('../models/Producto')
 
 exports.crearAlquiler = async (req, res) => {
     try {
+        const { codigoherramienta, diasprestamo} = req.body;
+
+        const productoRelacionado = await Producto.findOne({ nombre: codigoherramienta });
         let alquiler;
         alquiler = new Alquiler(req.body);
+        alquiler.total = productoRelacionado.precio * diasprestamo
         await alquiler.save();
         res.send(alquiler)
 
@@ -71,7 +76,7 @@ exports.eliminarAlquiler = async (req,res) =>{
             res.status(500).send('El alquiler no Existe');
         }
 
-        await Alquiler.findByIdAndRemove({_id:req.params.id})
+        await Alquiler.findByIdAndDelete({_id:req.params.id})
         
         res.json({msg : "Alquiler Eliminada"});
     } catch (error) {

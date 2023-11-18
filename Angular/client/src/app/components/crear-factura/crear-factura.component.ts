@@ -19,8 +19,6 @@ export class CrearFacturaComponent implements OnInit {
   id: string | null;
   listaProducto: Producto[] = [];
   seleccionado = 'producto';
-  cantidadF: any;
-  nombreF: any;
 
 
   constructor(private fb: FormBuilder,
@@ -34,8 +32,8 @@ export class CrearFacturaComponent implements OnInit {
       telefono: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
       direccion: ['', Validators.required],
       productoF: ['', Validators.required],
-      cantidades: ['', Validators.required],
-      price: ['', Validators.required]
+      cantidades: [null, Validators.required],
+      price: [null, Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get('id')
    }
@@ -84,7 +82,7 @@ export class CrearFacturaComponent implements OnInit {
       direccion : this.FacturaForm.get('direccion')?.value,
       productoF : this.FacturaForm.get('productoF')?.value,
       cantidades : this.FacturaForm.get('cantidades')?.value,
-      price : this.FacturaForm.get('price')?.value,
+      price : this.calcularPrecio()
     }
 
     if(this.id !== null)
@@ -137,7 +135,7 @@ export class CrearFacturaComponent implements OnInit {
           direccion: data.direccion,
           productoF: data.productoF,
           cantidades: data.cantidades,
-          price: data.price
+          price: this.calcularPrecio()
         })
       })
     }
@@ -153,6 +151,28 @@ export class CrearFacturaComponent implements OnInit {
         }
     );
 }
+
+calcularPrecio(): number {
+  const cantidad = this.FacturaForm.get('cantidades')?.value || 0;
+  const productoSeleccionado = this.listaProducto.find(producto => producto.nombre === this.FacturaForm.get('productoF')?.value);
+
+  console.log('Cantidad:', cantidad);
+  console.log('Producto seleccionado:', productoSeleccionado);
+
+  if (productoSeleccionado) {
+    console.log('Precio del producto:', productoSeleccionado.precio);
+    return cantidad * productoSeleccionado.precio;
+  } else {
+    console.error('No se pudo encontrar el producto seleccionado.');
+    return 0;
+  }
+}
+
+  actualizarPrecio(){
+    this.FacturaForm.patchValue({
+      price: this.calcularPrecio()
+    })
+  }
 
     //Validaciones
 get tipoCNoValido(){
@@ -173,9 +193,5 @@ get codigoHNoValido(){
 get cantidadNoValido(){
   return this.FacturaForm.get('cantidades')?.invalid && this.FacturaForm.get('cantidades')?.touched
 }
-get priceNoValido(){
-  return this.FacturaForm.get('price')?.invalid && this.FacturaForm.get('price')?.touched
-}
-
 }
 

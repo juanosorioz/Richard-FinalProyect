@@ -25,6 +25,7 @@ exports.crearFactura = async (req, res) => {
         }else{
             let factura;
             factura = new Factura(req.body);
+            factura.price = productoRelacionado.precio * cantidades;
             await factura.save();
 
             if (productoRelacionado.cantidad <= productoRelacionado.stock) {

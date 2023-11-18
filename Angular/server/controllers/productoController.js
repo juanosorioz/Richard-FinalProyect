@@ -73,7 +73,7 @@ exports.eliminarProducto = async (req,res) =>{
             res.status(500).send('El producto no Existe');
         }
 
-        await Producto.findByIdAndRemove({_id:req.params.id})
+        await Producto.findByIdAndDelete({_id:req.params.id})
         
         res.json({msg : "Producto Eliminado"});
     } catch (error) {

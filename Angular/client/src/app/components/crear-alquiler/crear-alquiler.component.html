@@ -36,7 +36,7 @@
             </div>
             <div id="day"class="form-group col-4">
               <label for="floatingDay">Dias de Prestamo:</label>
-              <input type="number" class="form-control" id="diaspAlquiler" name="diaspAlquiler" placeholder="Dias"formControlName="diasprestamo" [class.is-invalid]="diaspNoValido">
+              <input type="number" class="form-control" id="diaspAlquiler" name="diaspAlquiler" placeholder="Dias"formControlName="diasprestamo" [class.is-invalid]="diaspNoValido" (change)="actualizarPrecio()" >
               <small *ngIf="diaspNoValido" class="text-danger">Ingrese los dias de prestamo</small>
             </div>
             <div id="dep"class="form-group col-4">
@@ -46,7 +46,7 @@
             </div>
             <div id="total"class="form-group col-4">
               <label for="floatingTot">Total del prestamo:</label>
-              <input  type="number" class="form-control" id="floatingCodec" placeholder="Total" formControlName="total" readonly>
+              <input  type="number" class="form-control" id="floatingCodec" placeholder="Total" formControlName="total" [value]="AlquilerForm.get('total')?.value" readonly>
             </div>
         <div class="container12">
           <div class="row  button col-xs-12">
