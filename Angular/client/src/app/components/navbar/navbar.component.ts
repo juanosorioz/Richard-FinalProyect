@@ -1,4 +1,3 @@
-import { Token } from '@angular/compiler';
 import { Component, OnInit, Renderer2,NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-
+  isMenuOpen: boolean = false;
+  menuActive = false;
 
   constructor(private authservice: AuthService,
               private router: Router,
@@ -45,4 +45,10 @@ export class NavbarComponent implements OnInit {
     // Muestra el enlace solo si el rol del usuario coincide con el rol esperado
     return userRole === expectedRole;
   }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.menuActive = !this.menuActive;
+  }
+
 }

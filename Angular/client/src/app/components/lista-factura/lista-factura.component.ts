@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class ListaFacturaComponent implements OnInit {
 
   listaFactura: Factura[] = [];
+  titulo = "Crear Factura";
 
   constructor(private _facturaService: FacturaServiceService) { }
 

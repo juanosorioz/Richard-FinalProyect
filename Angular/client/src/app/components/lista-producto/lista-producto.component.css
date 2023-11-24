@@ -1,10 +1,9 @@
+.container{width: 70%;margin-left: 320px;}
+.span, .titulo{width: 100%;padding: 8px;border-radius: 0.3em; background-color: #333;color: #fff;text-align: center;border-radius: 10px;background-color:rgb(59, 58, 58);}
+.card{width: 100%; border-radius: 20px;}
 #code label{padding-left: 25px;}
 #category, #tipo{width: 25%;height: 60px;margin-left: 80px;}
-#tipo{margin-left: 165px;}
-#product{width: 40%;margin-left: 140px;}
-#card a{width: 32%;height: 40px;border: double;}
-#botong,#botonc, #botone{width: 10%;height: 43px;margin-top: 100px;border: double;}
+#botong,#botonc, #botone{width: 10%;height: 43px;margin-top: 100px;}
 #botonc,#botone{margin-left: 50px;}
-.span, .titulo{width: 100%;padding: 8px;border-radius: 0.3em;background-color:rgb(49, 48, 48);}
 #label{margin-left: 20px;}
 #descri{color: white;}

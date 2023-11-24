@@ -1,19 +1,16 @@
 <app-navbar></app-navbar>
-<div class="inventario">
-    <div class="container mt-5 text-center">
+    <div class="container text-center">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card mt-5">
+                <div class="card mt-2">
                     <div class="card-body">
                       <div class="span">
                         <span class="titulo text-white">FACTURACIÓN</span>
                       </div>
                         <form action="" class="mt-3">
                             <div class="table-responsive">
-                                <table *ngIf="listaFactura.length > 0" class="table table-bordered border-dark">
+                                <table *ngIf="listaFactura.length > 0" class="table table-bordered">
                                     <thead>
-                                      <tr>
-                                        <th scope="col">ID Factura</th>
+                                      <tr class=" border-dark">
                                         <th scope="col">TipoCliente</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Telefono</th>
@@ -27,7 +24,6 @@
                                     </thead>
                                     <tbody>
                                       <tr *ngFor="let factura of listaFactura">
-                                        <td>{{factura._id}}</td>
                                         <td>{{factura.tipocliente}}</td>
                                         <td>{{factura.nombre}}</td>
                                         <td>{{factura.telefono}}</td>
@@ -44,12 +40,25 @@
                               </div>
                                     <div id="button" class="mb-3">
                                         <button class="btn btn-primary float-start" routerLink="/inicio">VOLVER</button>
-                                        <button type="button" class="btn btn-success float-end" routerLink="/crear-factura">CREAR</button>
+                                        <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">CREAR</button>
                                     </div>
                         </form>
+
+                        <!-- Modal -->
+                        <div class="modal modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="card-header bg-dark">
+                                <span class="titulou">{{ titulo | uppercase }}</span>
+                                <button class="btn-close float-end" data-bs-dismiss="modal" aria-label="close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <app-crear-factura></app-crear-factura>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
-</div>

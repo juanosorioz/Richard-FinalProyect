@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="container1">
-    <div class="row col-xs-12">
+  <div class="container">
+    <div class="row">
       <div class="card">
         <div class="card-tittle bg-dark">
           <span class="titulo text-white">{{titulo | uppercase}}</span>
+          <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form id="formulario" class="row" action="" [formGroup]="AlquilerForm" (ngSubmit)="agregarAlquiler()">
           <div id="codec"class="form-group col-3">
@@ -49,23 +49,14 @@
               <input  type="number" class="form-control" id="floatingCodec" placeholder="Total" formControlName="total" [value]="AlquilerForm.get('total')?.value" readonly>
             </div>
         <div class="container12">
-          <div class="row  button col-xs-12">
-              <button id="botong" type="submit" class="btn btn-success col-2">Guardar</button>
-              <button id="botonc" type="button" class="btn btn-secondary col-2" routerLink="/lista-alquiler">Cancelar</button>
+          <hr>
+          <div class="row  button">
+              <button id="botong" type="submit" class="btn col-2">Guardar</button>
+              <button id="botonc" type="button" class="btn col-2" data-bs-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </form>
       </div>
-      <div class="part2">
-        <div id="product" class="card col-3" style="width: 25%;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Imagen</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</div>
 

@@ -1,19 +1,17 @@
 <app-navbar></app-navbar>
-
-<div class="inventario">
-    <div class="container mt-5 text-center">
+    <div class="container mt-2 text-center">
         <div class="row">
-            <div class="col-lg-10  offset-1">
-                <div class="card mt-5">
+            <div class="col-12">
+                <div class="card">
                     <div class="card-body">
                       <div class="span">
                         <span class="titulo text-white">INVENTARIO</span>
                       </div>
                         <form action="" class="mt-3">
                             <div class="table-responsive">
-                                <table  *ngIf="listaProducto.length > 0" class="table table-bordered border-dark">
+                                <table  *ngIf="listaProducto.length > 0" class="table table-bordered">
                                     <thead>
-                                      <tr>
+                                      <tr class="border-dark">
                                         <th scope="col">ID producto</th>
                                         <th scope="col">Nombre Producto</th>
                                         <th scope="col">Categoria</th>
@@ -47,4 +45,3 @@
             </div>
         </div>
     </div>
-</div>
