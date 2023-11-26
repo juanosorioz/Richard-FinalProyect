@@ -29,9 +29,21 @@ const alquilerSchema = mongoose.Schema({
         type:Number,
         require: true
     },
+    cantidades: {
+        type:Number,
+        require: true
+    },
     total: {
         type:Number,
         require: true
+    },
+    totalPagar: {
+        type:Number,
+        require: true
+    },
+    stockProcesado: {
+        type:Boolean,
+        default: false
     },
     fechaCreacion: {
         type:Date,

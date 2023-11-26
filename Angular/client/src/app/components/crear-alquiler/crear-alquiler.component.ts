@@ -19,6 +19,7 @@ export class CrearAlquilerComponent implements OnInit {
   id: string | null;
   listaProducto: Producto[]=[];
   seleccionado = 'producto';
+  filtroNombre: string = '';
 
   constructor(private fb: FormBuilder,
               private _alquilerService: AlquilerServiceService,
@@ -32,8 +33,10 @@ export class CrearAlquilerComponent implements OnInit {
       direccion: ['', Validators.required],
       codigoherramienta: ['', Validators.required],
       diasprestamo: [null, Validators.required],
+      cantidades: [null, Validators.required],
       deposito: ['', Validators.required],
-      total: [null, Validators.required]
+      total: [null, Validators.required],
+      totalPagar: [null, Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get('id')
    }
@@ -74,7 +77,9 @@ export class CrearAlquilerComponent implements OnInit {
       codigoherramienta : this.AlquilerForm.get('codigoherramienta')?.value,
       diasprestamo : this.AlquilerForm.get('diasprestamo')?.value,
       deposito : this.AlquilerForm.get('deposito')?.value,
-      total : this.calcularPrecio()
+      cantidades: this.AlquilerForm.get('cantidades')?.value,
+      total : this.calcularPrecio(),
+      totalPagar: this.calcularPrecioAlquiler()
     }
 
     if(this.id !== null)
@@ -125,41 +130,64 @@ export class CrearAlquilerComponent implements OnInit {
           telefono: data.telefono,
           direccion: data.direccion,
           codigoherramienta: data.codigoherramienta,
+          cantidades: data.cantidades,
           diasprestamo: data.diasprestamo,
           deposito: data.deposito,
-          total: this.calcularPrecio()
+          total: this.calcularPrecio(),
+          totalPagar: this.calcularPrecioAlquiler()
         })
       })
     }
   }
 
-  actualizarStock(): void {
-    this._productoService.actualizarStock().subscribe(
-        response => {
-            console.log(response.message); // Mensaje de éxito desde el backend
-        },
-        error => {
-            console.error(error);
-        }
-    );
-}
-
 calcularPrecio(): number {
   const cantidad = this.AlquilerForm.get('diasprestamo')?.value || 0;
+  const cantidad2 = this.AlquilerForm.get('cantidades')?.value || 0;
   const productoSeleccionado = this.listaProducto.find(producto => producto.nombre === this.AlquilerForm.get('codigoherramienta')?.value);
 
-  console.log('Cantidad:', cantidad);
-  console.log('Producto seleccionado:', productoSeleccionado);
 
   if (productoSeleccionado) {
-    console.log('Precio del producto:', productoSeleccionado.precio);
-    const multi = cantidad * productoSeleccionado.precio
-    console.log(multi);
-    return multi;
+    const valordia = 0.05;
+    const operacion = productoSeleccionado.precio * valordia;
+    const operacion2 = operacion * cantidad2;
+    const suma = operacion2 * cantidad;
+    return suma;
   } else {
     console.error('No se pudo encontrar el producto seleccionado.');
     return 0;
   }
+}
+calcularPrecioAlquiler(): number {
+  const cantidad = this.AlquilerForm.get('deposito')?.value || 0;
+  const cantidad2 = this.AlquilerForm.get('cantidades')?.value || 0;
+
+
+  if (true) {
+    const operacion = cantidad2 * cantidad
+    return operacion;
+  }
+}
+
+calcularPrecioTotal(): number {
+  const cantidad = this.AlquilerForm.get('total')?.value || 0;
+  const cantidad2 = this.AlquilerForm.get('deposito')?.value || 0;
+
+
+  if (true) {
+    const operacion = cantidad + cantidad2;
+    return operacion;
+  }
+}
+
+actualizarStock(): void {
+  this._alquilerService.actualizarStock().subscribe(
+      response => {
+          console.log(response.message); // Mensaje de éxito desde el backend
+      },
+      error => {
+          console.error(error);
+      }
+  );
 }
 
 actualizarPrecio(){
@@ -168,6 +196,17 @@ actualizarPrecio(){
   })
 }
 
+actualizarPrecioAlquiler(){
+  this.AlquilerForm.patchValue({
+    deposito: this.calcularPrecioAlquiler()
+  })
+}
+
+actualizarPrecioTotal(){
+  this.AlquilerForm.patchValue({
+    totalPagar: this.calcularPrecioTotal()
+  })
+}
   //Validaciones
 get tipoCNoValido(){
   return this.AlquilerForm.get('tipocliente')?.invalid && this.AlquilerForm.get('tipocliente')?.touched

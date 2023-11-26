@@ -15,6 +15,7 @@ export class ListaProductoComponent implements OnInit {
 
   listaProducto: Producto[] = [];
   listaFactura: Factura[]=[];
+  filtroProducto = '';
 
   constructor(private _productoService: ProductoServiceService,
               private _facturaService: FacturaServiceService,) {}
@@ -29,6 +30,7 @@ export class ListaProductoComponent implements OnInit {
     this._facturaService.getFacturas().subscribe(data =>{
       console.log(data);
       this.listaFactura = data;
+
     }, error =>{
       console.log(error);
       Swal.fire({
@@ -54,6 +56,14 @@ export class ListaProductoComponent implements OnInit {
       console.log(error);
     })
   }
+
+  filtrarProductos() {
+    // Filtra la lista de productos basándose en el criterio de búsqueda
+    this.listaProducto = this.listaProducto.filter(producto =>
+      producto.nombre.toLowerCase().includes(this.filtroProducto.toLowerCase())
+    );
+}
+
 
   eliminarProducto(id: any){
     Swal.fire({

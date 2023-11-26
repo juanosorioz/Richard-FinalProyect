@@ -1,14 +1,13 @@
-export class Reportes{
+export class Reporte{
 
   _id?: number;
   title: string;
-  categoria: string;
-  description: string;
+  name: string;
+  text: string;
 
-  constructor(title: string, categoria: string, description: string){
+  constructor(title: string, name: string, text: string){
       this.title=title;
-      this.categoria= categoria;
-      this.description= description;
-
+      this.name= name;
+      this.text= text;
   }
 }

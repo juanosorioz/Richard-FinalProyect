@@ -93,7 +93,7 @@ exports.signIn = async (req,res) =>{
 
             res.json({token, expiresIn})
         }else{
-            res.json('Usuario o clave incorrectos');
+            res.status(401).json({ error: 'Usuario o clave incorrectos'});
         }
 
     } catch (err) {

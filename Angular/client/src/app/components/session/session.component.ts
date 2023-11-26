@@ -3,6 +3,7 @@ import { Component, OnInit, Renderer2, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-session',
@@ -30,14 +31,15 @@ export class SessionComponent implements OnInit {
       console.log(res);
       localStorage.setItem('token',res.token)
       this.router.navigate(['inicio'])
-      this.zone.runOutsideAngular(() => {
-        setTimeout(() => {
-          this.zone.run(() => {
-            this.renderer.setProperty(document.location, 'href', document.location.href);
-          });
-        }, 1000);
+    },(error) =>{
+      console.error(error)
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Usuario o Clave Incorrectos",
+        showConfirmButton: false,
+        timer: 1500
       });
     })
   }
-
 }

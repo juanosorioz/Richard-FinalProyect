@@ -1,9 +1,8 @@
 .card-tittle{text-align: center;margin-top: 10px;}
-.card{height: 333px;}
 .form-control{border: solid 0.1em;}
 .titulo{padding: 5px;border-radius: 0.2em;margin-top: 10px; font-size: 20px;}
 form{width: 70%;}
-.button{margin-top: 15px;margin-left: 15px;}
+.button{margin-top: 15px;margin-left: 15px; margin-bottom: 10px;}
 .btn-close{width: 3%; height: 20px; background-color: white;color: white;}
 #botonc{margin-left: 500px; background: transparent; border: solid 0.1em black;}
 #botong{background: transparent; border: solid 0.1em black;}

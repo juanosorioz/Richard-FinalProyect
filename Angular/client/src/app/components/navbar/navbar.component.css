@@ -14,7 +14,7 @@
     transition: transform 0.3s ease;
     border-radius: 0px 15px 15px 0px;
   }
-  
+
   .menu-izquierda a {
     margin: 15px 0;
     color: white;
@@ -28,7 +28,7 @@ margin-left: 20px;
 }
   .nav-item{
     margin-top: 30px;
-    
+
   }
   /* .navv{border: 0;height: 50px;margin-top: 4px; background-image: linear-gradient(150deg, #9500ff, #09f, #00DDFF); border-radius: 8px; color: white;display: flex; cursor: pointer; transition: .5s;}
   #navv{width: 100%; height: 45px;background-color: black; border-radius: 6px; transition: .3s;}
@@ -40,16 +40,16 @@ margin-left: 20px;
     margin-left: 19%;
     background-color:white;
     /* overflow: hidden; */
-    display: flex;  
+    display: flex;
     /* justify-content: space-between; */
     color: black;
     top: 10px;
     border-radius: 10px;
-  } 
+  }
   .hr{width: 76%;height: 5px; margin-left: 280px; margin-top: 30px;background-color: white}
   .img{width: 80%;}
   img{width: 100%;height: 140px; border-radius: 40px;}
-  
+
   .navbar h1 {
     font-size: 24px;
     margin-left: 500px;
@@ -61,6 +61,10 @@ margin-left: 20px;
 .navbar-title h1, p{
     font-family: 'Courier New', Courier, monospace;
 }
+.menu-title{
+  margin-left: 20%;
+  margin-top: 10px;
+}
   /* app.component.scss */
 .navbar-menu {
     display: flex;
@@ -69,7 +73,7 @@ margin-left: 20px;
     padding: 10px;
     color: #fff;
   }
-  
+
   /**menu desplegable del navbar*/
   .menu-icon{
    display: flex;
@@ -90,7 +94,6 @@ margin-left: 20px;
   }
   .menu {
     width: 23%;
-    height: 500px;
     display: none;
     position: absolute;
     z-index: 1;
@@ -99,24 +102,24 @@ margin-left: 20px;
     right: 10px;
     background-color: #333;
     padding: 10px;
-    border-radius: 20px 5px 5px 60px;
+    border-radius: 20px 5px 5px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-  
+
   .menu.open {
     display: flex;
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
-  
+
   li {
     margin-bottom: 10px;
   }
-  
+
   a, button {
     text-decoration: none;
     color: #fff;
@@ -124,9 +127,37 @@ margin-left: 20px;
     cursor: pointer;
   }
   .but{
-    margin-top: 300px;
-    margin-left: 30px;
+    margin-top: 10px;
+    margin-left: 70px;
+    margin-bottom: 20px;
 }
 .but button{
-    border-radius: 4px 4px 4px 20px;
+    border-radius: 4px 4px 4px 4px;
 }
+
+.perfil .imagen img{
+  width: 50%;
+  border-radius: 4em;
+  height: 120px;
+  border: solid;
+  margin-left: 25%;
+}
+.perfil .role{
+  text-align: center;
+  margin-top: 10px;
+  color: lightblue;
+}
+.perfil .name{
+  text-align: center;
+  margin-top: 10px;
+}
+.histo, .hist{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+a i{
+  margin-right: 10px;
+}
+li{margin-top: 30px;}
+

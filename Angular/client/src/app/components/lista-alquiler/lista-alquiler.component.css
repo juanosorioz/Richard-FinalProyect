@@ -13,14 +13,52 @@
     max-width: 100% !important;
     width: 70%; /* Puedes ajustar este valor según tus necesidades */
   }
-  
+
   /* Asegúrate de que el contenido se ajuste a las dimensiones del modal-dialog */
   .modal-content {
     width: 100%;
   }
-  
+
   /* Ajusta el tamaño del modal-body si es necesario */
   .modal-body {
     max-height: 500px; /* Ejemplo de altura máxima, puedes cambiarla según tus necesidades */
     overflow-y: auto; /* Añade scroll si el contenido es demasiado grande */
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-title {
+    color: #3498db;
+    margin-bottom: 20px;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .input-group {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .form-control {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  .float-end {
+    float: right;
   }

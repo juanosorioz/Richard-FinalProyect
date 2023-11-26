@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2,NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,16 +10,25 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  nombre = '';
+  roles = '';
+  rola='';
+  listaUser = [] =[];
+  user = {};
+  username = '';
+
   isMenuOpen: boolean = false;
   menuActive = false;
 
   constructor(private authservice: AuthService,
+              private userservice: UserService,
               private router: Router,
               private renderer: Renderer2,
               private zone: NgZone) { }
 
 
   ngOnInit(): void {
+    this.showName();
   }
 
 
@@ -27,6 +37,7 @@ export class NavbarComponent implements OnInit {
     this.authservice.singin(user).subscribe((res:any)=>{
       console.log(res);
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       this.router.navigate([''])
       this.zone.runOutsideAngular(() => {
         setTimeout(() => {
@@ -44,6 +55,39 @@ export class NavbarComponent implements OnInit {
 
     // Muestra el enlace solo si el rol del usuario coincide con el rol esperado
     return userRole === expectedRole;
+  }
+
+  showUserLink(): boolean{
+    const expectedRole = 'user';
+    const userRole = this.authservice.getUserRole();
+
+    return userRole === expectedRole
+  }
+
+  showName() {
+    const user = this.authservice.getUser();
+    if (user && 'userName' in user) {
+      this.username = user.userName;
+
+      this.userservice.getUsers().subscribe((users: any[]) => {
+        const matchedUser = users.find(u => u.userName === this.username);
+        if (matchedUser) {
+          this.nombre = matchedUser.name;
+          this.roles = this.authservice.getUserRole();
+          if(this.roles === 'admin'){
+            this.rola = 'Administrador'
+          }else if(this.roles === 'user'){
+            this.rola = 'Empleado'
+          }
+        } else {
+          console.log("No se encontró un usuario con ese nombre de usuario");
+        }
+      });
+    } else {
+      console.error('Error: Usuario no tiene la propiedad userName', user);
+      this.user = { userName: '', pass: '' };
+      this.username = '';
+    }
   }
 
   toggleMenu() {

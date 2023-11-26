@@ -7,5 +7,6 @@ router.get('/', alquilerController.obtenerAlquilers);
 router.get('/:id', alquilerController.obtenerAlquiler);
 router.put('/:id', alquilerController.actualizarAlquiler);
 router.delete('/:id', alquilerController.eliminarAlquiler);
+router.post('/actualizarStock', alquilerController.actualizarStock);
 
 module.exports = router;

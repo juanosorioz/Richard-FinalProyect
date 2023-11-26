@@ -8,6 +8,10 @@
                       <div class="span">
                         <span class="titulo text-white">ALQUILER</span>
                       </div>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar producto..." [(ngModel)]="filtroAlquiler">
+                        <button type="button" class="btn btn-primary" (click)="filtrarProductos()" >Buscar</button>
+                    </div>
                         <form action="" class="mt-3">
                             <div class="table-responsive">
                                 <table *ngIf="listaAlquiler.length > 0" class="table table-bordered">
@@ -19,10 +23,13 @@
                                         <th scope="col">Direccion</th>
                                         <th scope="col">Herramienta</th>
                                         <th scope="col">Dias</th>
+                                        <th scope="col">Cantidad</th>
                                         <th scope="col">Deposito</th>
-                                        <th scope="col">Total Precio</th>
+                                        <th scope="col">Total Alquiler</th>
+                                        <th scope="col">Total Pago</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
+                                        <th scope="col">Imprimir</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -33,10 +40,13 @@
                                         <td>{{alquiler.direccion}}</td>
                                         <td>{{alquiler.codigoherramienta}}</td>
                                         <td>{{alquiler.diasprestamo}}</td>
+                                        <td>{{alquiler.cantidades}}</td>
                                         <td>{{alquiler.deposito | currency: 'COP'}}</td>
                                         <td>{{alquiler.total | currency: 'COP'}}</td>
+                                        <td>{{alquiler.totalPagar | currency: 'COP'}}</td>
                                         <td><i [routerLink]="['/editar-alquiler', alquiler._id]" class="fa-solid fa-pen-to-square text-primary"></i></td>
                                         <td><i (click)="eliminarAlquiler(alquiler._id)" class="fa-solid fa-trash text-danger"></i></td>
+                                        <td><i (click)="generarPDF(alquiler)" class="fa-solid fa-print"></i></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -44,7 +54,7 @@
                               </div>
                                     <div id="button" class="mb-3">
                                         <button class="btn btn-primary float-start" routerLink="/inicio">VOLVER</button>
-                                        <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">CREAR</button>
+                                        <button type="button" class="btn btn-success float-end" routerLink="/crear-alquiler">CREAR</button>
                                     </div>
                         </form>
 

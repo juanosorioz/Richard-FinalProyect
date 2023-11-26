@@ -7,3 +7,40 @@
 #botonc,#botone{margin-left: 50px;}
 #label{margin-left: 20px;}
 #descri{color: white;}
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group {
+  display: flex;
+  margin-top: 10px;
+}
+
+.form-control {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+.float-end {
+  float: right;
+}

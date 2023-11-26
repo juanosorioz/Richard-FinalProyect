@@ -36,10 +36,12 @@ export class AuthService {
 
   setUser(newUser: {userName: string, pass: string}){
     this.user = newUser
+    localStorage.setItem('user', JSON.stringify(newUser));
   }
 
   getUser(){
-    return this.user
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
   }
 
   getUserRole(): string {

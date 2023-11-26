@@ -156,12 +156,12 @@ calcularPrecio(): number {
   const cantidad = this.FacturaForm.get('cantidades')?.value || 0;
   const productoSeleccionado = this.listaProducto.find(producto => producto.nombre === this.FacturaForm.get('productoF')?.value);
 
-  console.log('Cantidad:', cantidad);
-  console.log('Producto seleccionado:', productoSeleccionado);
-
   if (productoSeleccionado) {
-    console.log('Precio del producto:', productoSeleccionado.precio);
-    return cantidad * productoSeleccionado.precio;
+    const iva = 0.19;
+    const operacion = productoSeleccionado.precio * cantidad;
+    const operacion2 = operacion * iva;
+    const suma = operacion + operacion2;
+    return suma;
   } else {
     console.error('No se pudo encontrar el producto seleccionado.');
     return 0;

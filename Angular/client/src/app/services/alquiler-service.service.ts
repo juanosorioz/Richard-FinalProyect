@@ -32,6 +32,10 @@ export class AlquilerServiceService {
     return this.http.put(this.url + id, alquiler);
   }
 
+  actualizarStock():Observable<any>{
+    return this.http.post(`${this.url}/actualizarStock`,{});
+  }
+
 }
 
 

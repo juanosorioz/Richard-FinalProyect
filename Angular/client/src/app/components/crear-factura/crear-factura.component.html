@@ -5,9 +5,8 @@
             <div class="form-group col-md-2" id="tipocli">
                 <label for="">Tipo Cliente:</label>
                 <select id="empc" class="form-control" formControlName="tipocliente" [class.is-invalid]="tipoCNoValido">
-                  <option value="0">--Tipo de cliente--</option>
-                  <option value="1">Empresa</option>
-                  <option value="2">Cliente</option>
+                  <option value="Empresa">Empresa</option>
+                  <option value="Cliente">Cliente</option>
                 </select>
                 <!-- <small *ngIf="tipoCNoValido" class="text-danger">Recuerda Seleccionar un campo</small> -->
             </div>
@@ -25,11 +24,6 @@
             <label for="floatingDirec">Direccion:</label>
             <input type="text" class="form-control" id="floatingDirec" placeholder="Direccion" formControlName="direccion" [class.is-invalid]="direccionNoValido">
             <!-- <small *ngIf="direccionNoValido" class="text-danger">Ingrese una direccion</small> -->
-          </div>
-          <div id="cedue"class="form-group col-6" >
-            <label for="floatingCedue" >Cantidad:</label>
-            <input type="number" class="form-control" id="floatingCedue" placeholder="Cantidad" formControlName="cantidades" [class.is-invalid]="cantidadNoValido" (change)="actualizarPrecio()">
-            <!-- <small *ngIf="cantidadNoValido" class="text-danger">Ingrese una cantidad</small> -->
           </div>
           <div id="cedue"class="form-group col-6">
             <label for="floatingCedue">Precio:</label>
@@ -49,11 +43,16 @@
               </select>
               <div class="btn btn-success" id="agregar">+</div>
             </div>
+            <div id="cedue"class="form-group col-6" >
+              <label for="floatingCedue" >Cantidad:</label>
+              <input type="number" class="form-control" id="floatingCedue" placeholder="Cantidad" formControlName="cantidades" [class.is-invalid]="cantidadNoValido" (change)="actualizarPrecio()">
+              <!-- <small *ngIf="cantidadNoValido" class="text-danger">Ingrese una cantidad</small> -->
+            </div>
           </div>
           <div class="container3">
             <div class="row button">
                 <button id="botong" type="submit" class="btn  bordered-around col-md-2">Guardar</button>
-                <button id="botonc" type="button" class="btn  bordered-around  col-md-2" data-bs-dismiss="modal">Cancelar</button>
+                <button id="botonc" type="button" class="btn  bordered-around  col-md-2" routerLink="/lista-factura">Cancelar</button>
             </div>
           </div>
         </form>
