@@ -1,7 +1,5 @@
-import { Token } from '@angular/compiler';
 import { Component, OnInit, Renderer2, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 

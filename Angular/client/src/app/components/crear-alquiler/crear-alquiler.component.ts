@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alquiler } from 'src/app/models/alquiler';
@@ -25,7 +25,9 @@ export class CrearAlquilerComponent implements OnInit {
               private _alquilerService: AlquilerServiceService,
               private _productoService: ProductoServiceService,
               private router: Router,
-              private aRoute : ActivatedRoute) {
+              private aRoute : ActivatedRoute,
+              private renderer: Renderer2,
+              private zone: NgZone) {
     this.AlquilerForm = this.fb.group({
       tipocliente: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -107,7 +109,13 @@ export class CrearAlquilerComponent implements OnInit {
           timer: 1100
         })
         this.actualizarStock();
-        this.router.navigate(['/lista-alquiler'])
+        this.zone.runOutsideAngular(() => {
+          setTimeout(() => {
+            this.zone.run(() => {
+              this.renderer.setProperty(document.location, 'href', document.location.href);
+            });
+          }, 1000);
+        });
       },error =>{
         console.log(error);
         Swal.fire({

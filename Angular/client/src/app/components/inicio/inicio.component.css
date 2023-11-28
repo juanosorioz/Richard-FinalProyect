@@ -1,1 +1,42 @@
 
+.container-fluid{width: 80%; margin: 40px 260px ;}
+  .card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-info {
+  padding: 15px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+p {
+  color: #666;
+}

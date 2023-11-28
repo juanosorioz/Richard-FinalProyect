@@ -12,9 +12,9 @@
                     </div>
                         <form action="" class="mt-3">
                             <div class="table-responsive">
-                                <table *ngIf="listaFactura.length > 0" class="table table-bordered">
+                                <table *ngIf="listaFactura.length > 0" class="table table-bordered table-hover border-dark">
                                     <thead>
-                                      <tr class=" border-dark">
+                                      <tr>
                                         <th scope="col">TipoCliente</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Telefono</th>
@@ -46,7 +46,7 @@
                               </div>
                                     <div id="button" class="mb-3">
                                         <button class="btn btn-primary float-start" routerLink="/inicio">VOLVER</button>
-                                        <button type="button" class="btn btn-success float-end" routerLink="/crear-factura">CREAR</button>
+                                        <button type="button" class="btn btn-dark float-end"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">CREAR</button>
                                     </div>
                         </form>
 

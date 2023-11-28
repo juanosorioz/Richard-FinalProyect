@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Alquiler } from 'src/app/models/alquiler';
 import { AlquilerServiceService } from 'src/app/services/alquiler-service.service';
 import Swal from 'sweetalert2';

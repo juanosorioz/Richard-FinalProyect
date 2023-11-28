@@ -1,5 +1,5 @@
 import { Producto } from './../../models/producto';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Factura } from 'src/app/models/factura';
@@ -25,7 +25,9 @@ export class CrearFacturaComponent implements OnInit {
               private _facturaService: FacturaServiceService,
               private _productoService: ProductoServiceService,
               private router: Router,
-              private aRoute : ActivatedRoute) {
+              private aRoute : ActivatedRoute,
+              private renderer: Renderer2,
+              private zone: NgZone) {
     this.FacturaForm = this.fb.group({
       tipocliente: ['', Validators.required],
       factura: ['', Validators.required],
@@ -110,8 +112,13 @@ export class CrearFacturaComponent implements OnInit {
           timer: 1100
         })
         this.actualizarStock();
-        this.router.navigate(['/lista-factura'])
-
+        this.zone.runOutsideAngular(() => {
+          setTimeout(() => {
+            this.zone.run(() => {
+              this.renderer.setProperty(document.location, 'href', document.location.href);
+            });
+          }, 1000);
+        });
       },error =>{
         console.log(error);
         Swal.fire({

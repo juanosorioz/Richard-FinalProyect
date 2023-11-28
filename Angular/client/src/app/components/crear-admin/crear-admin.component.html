@@ -2,6 +2,7 @@
 
 <div class="container">
   <h2 class="titulo text-white">{{titulo}}</h2>
+  <hr>
   <form [formGroup]="UserForm" (ngSubmit)="agregarUser()">
     <div class="form-group">
       <label for="name" id="name">Nombre:</label>
@@ -29,8 +30,9 @@
       </select>
       <small *ngIf="roleN" class="text-danger">Ingrese un role</small>
     </div>
-
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <button type="button" class="btn btn-primary mt-3" routerLink="/admin" >Volver</button>
+    <div class="but">
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <button type="button" class="btn float-end" routerLink="/admin" >Volver</button>
+    </div>
   </form>
 </div>

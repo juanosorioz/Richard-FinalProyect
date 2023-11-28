@@ -52,6 +52,7 @@
   .btn-primary {
     background-color: #3498db;
     border-color: #3498db;
+    z-index: 1;
   }
 
   .btn-primary:hover {
@@ -62,3 +63,29 @@
   .float-end {
     float: right;
   }
+  #button button {margin-top: 10px;}
+
+  
+@media (max-width: 1366px) {
+  .modal-dialog {
+      width: 70%;
+  }
+}
+
+@media (max-width: 1920px) {
+  .modal-dialog {
+      width: 60%;
+  }
+}
+
+@media (max-width: 2560px) {
+  .modal-dialog {
+      width: 50%;
+  }
+}
+
+@media (max-width: 3840px) {
+  .modal-dialog {
+      width: 60%;
+  }
+}

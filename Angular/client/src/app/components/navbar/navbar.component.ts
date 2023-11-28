@@ -20,6 +20,8 @@ export class NavbarComponent implements OnInit {
   isMenuOpen: boolean = false;
   menuActive = false;
 
+  activeLink: number | null = null;
+
   constructor(private authservice: AuthService,
               private userservice: UserService,
               private router: Router,
@@ -93,6 +95,16 @@ export class NavbarComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     this.menuActive = !this.menuActive;
+  }
+
+  handleClick(linkNumber: number): void {
+    // Desactiva el enlace actual si ya estaba activo
+    if (this.activeLink === linkNumber) {
+      this.activeLink = null;
+    } else {
+      // Establece el enlace activo al hacer clic
+      this.activeLink = linkNumber;
+    }
   }
 
 }

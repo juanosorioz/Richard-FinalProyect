@@ -11,19 +11,19 @@
     <hr>
   </div>
   <ul class="nav-links">
-    <li class="nav-item">
+    <li class="nav-item" (click)="handleClick(1)" [class.active]="activeLink === 1" >
       <i class="fa-solid fa-file-invoice" style="color: white;"></i>
       <a id="nav" routerLink="/lista-factura" routerLinkActive="active">Facturación</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" (click)="handleClick(2)" [class.active]="activeLink === 2" >
       <i class="fa-solid fa-clipboard" style="color: #f8fcfc;"></i>
       <a id="nav" routerLink="/lista-producto" routerLinkActive="active">Inventario</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" (click)="handleClick(3)" [class.active]="activeLink === 3" >
       <i class="fa-solid fa-screwdriver-wrench" style="color: #f3f7f7;"></i>
       <a id="nav" routerLink="/lista-alquiler" routerLinkActive="active">Alquiler</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="showAdminLink()">
       <i class="fa-regular fa-pen-to-square" *ngIf="showAdminLink()" style="color: #effbf9;"></i>
         <a id="nav" routerLink="/admin" routerLinkActive="active" *ngIf="showAdminLink()" >Admin</a>
     </li>
@@ -60,7 +60,7 @@
         <li *ngIf="showUserLink()" class="hist"><a  routerLink="/crear-reporte"><i class="fa-solid fa-newspaper"></i>Reportes</a></li>
       </ul>
       <div class="but">
-        <button type="button" class="btn btn-primary" (click)="singout()" routerLinkActive="activate">Cerrar Sesión</button>
+        <button type="button" class="btn" (click)="singout()" routerLinkActive="activate">Cerrar Sesión</button>
       </div>
     </div>
   </div>
