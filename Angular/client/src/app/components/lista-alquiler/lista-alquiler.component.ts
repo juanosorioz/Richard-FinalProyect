@@ -37,10 +37,14 @@ export class ListaAlquilerComponent implements OnInit {
   }
 
   filtrarProductos() {
-    // Filtra la lista de productos basándose en el criterio de búsqueda
-    this.listaAlquiler = this.listaAlquiler.filter(alquiler =>
-      alquiler.nombre.toLowerCase().includes(this.filtroAlquiler.toLowerCase())
-    );
+    if (this.filtroAlquiler.trim() === '') {
+      // Si el filtro está vacío, restaura la lista completa
+      this.obtenerAlquilers();
+    }else{
+      this.listaAlquiler = this.listaAlquiler.filter(alquiler =>
+        alquiler.nombre.toLowerCase().includes(this.filtroAlquiler.toLowerCase())
+      );
+    }
 }
 
   eliminarAlquiler(id: any){

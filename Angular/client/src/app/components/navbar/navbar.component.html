@@ -11,21 +11,21 @@
     <hr>
   </div>
   <ul class="nav-links">
-    <li class="nav-item" (click)="handleClick(1)" [class.active]="activeLink === 1" >
+    <li class="nav-item" (click)="handleClick(1)" [class.active]="activeLink === 1" routerLink="/lista-factura" routerLinkActive="active">
       <i class="fa-solid fa-file-invoice" style="color: white;"></i>
-      <a id="nav" routerLink="/lista-factura" routerLinkActive="active">Facturación</a>
+      <a id="nav">Facturación</a>
     </li>
-    <li class="nav-item" (click)="handleClick(2)" [class.active]="activeLink === 2" >
+    <li class="nav-item" (click)="handleClick(2)" [class.active]="activeLink === 2" routerLink="/lista-producto" routerLinkActive="active">
       <i class="fa-solid fa-clipboard" style="color: #f8fcfc;"></i>
-      <a id="nav" routerLink="/lista-producto" routerLinkActive="active">Inventario</a>
+      <a id="nav">Inventario</a>
     </li>
-    <li class="nav-item" (click)="handleClick(3)" [class.active]="activeLink === 3" >
+    <li class="nav-item" (click)="handleClick(3)" [class.active]="activeLink === 3" routerLink="/lista-alquiler" routerLinkActive="active">
       <i class="fa-solid fa-screwdriver-wrench" style="color: #f3f7f7;"></i>
-      <a id="nav" routerLink="/lista-alquiler" routerLinkActive="active">Alquiler</a>
+      <a id="nav">Alquiler</a>
     </li>
-    <li class="nav-item" *ngIf="showAdminLink()">
+    <li class="nav-item" *ngIf="showAdminLink()" routerLink="/admin" routerLinkActive="active">
       <i class="fa-regular fa-pen-to-square" *ngIf="showAdminLink()" style="color: #effbf9;"></i>
-        <a id="nav" routerLink="/admin" routerLinkActive="active" *ngIf="showAdminLink()" >Admin</a>
+        <a id="nav" *ngIf="showAdminLink()" >Admin</a>
     </li>
   </ul>
 </div>
@@ -59,8 +59,8 @@
         <li *ngIf="showAdminLink()" class="histo"><a routerLink="/lista-reporte"><i class="fa-solid fa-book"></i>Historial</a></li>
         <li *ngIf="showUserLink()" class="hist"><a  routerLink="/crear-reporte"><i class="fa-solid fa-newspaper"></i>Reportes</a></li>
       </ul>
-      <div class="but">
-        <button type="button" class="btn" (click)="singout()" routerLinkActive="activate">Cerrar Sesión</button>
+      <div class="but" (click)="singout()" routerLinkActive="activate">
+        <button type="button" class="btn">Cerrar Sesión</button>
       </div>
     </div>
   </div>

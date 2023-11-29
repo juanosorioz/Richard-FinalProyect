@@ -70,10 +70,15 @@ export class ListaFacturaComponent implements OnInit {
 
 
   filtrarProductos() {
+    if (this.filtroFactura.trim() === '') {
+      // Si el filtro está vacío, restaura la lista completa
+      this.obtenerFacturas();
+    }else{
+      this.listaFactura = this.listaFactura.filter(factura =>
+        factura.nombre.toLowerCase().includes(this.filtroFactura.toLowerCase())
+      );
+    }
     // Filtra la lista de productos basándose en el criterio de búsqueda
-    this.listaFactura = this.listaFactura.filter(factura =>
-      factura.nombre.toLowerCase().includes(this.filtroFactura.toLowerCase())
-    );
 }
 
 

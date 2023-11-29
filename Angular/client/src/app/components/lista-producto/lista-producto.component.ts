@@ -58,10 +58,17 @@ export class ListaProductoComponent implements OnInit {
   }
 
   filtrarProductos() {
-    // Filtra la lista de productos basándose en el criterio de búsqueda
-    this.listaProducto = this.listaProducto.filter(producto =>
-      producto.nombre.toLowerCase().includes(this.filtroProducto.toLowerCase())
-    );
+    if (this.filtroProducto.trim() === '') {
+      // Si el filtro está vacío, restaura la lista completa
+      this.obtenerProductos();
+    }else{
+          // Filtra la lista de productos basándose en el criterio de búsqueda
+      this.listaProducto = this.listaProducto.filter(producto =>
+        producto.nombre.toLowerCase().includes(this.filtroProducto.toLowerCase())
+      );
+    }
+
+
 }
 
 

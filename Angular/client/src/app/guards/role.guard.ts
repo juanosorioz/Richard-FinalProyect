@@ -29,11 +29,11 @@ export class RoleGuard implements CanActivate{
     console.log(role);
 
     if(!this.authServices.isAuth() || role !== expectedRole){
-      console.log('Usuario no autorizado');
+      console.log('Usuario no Autorizado');
       Swal.fire({
         position: "top-end",
         icon: "error",
-        title: "No estas autorizado",
+        title: "No estas Autorizado",
         showConfirmButton: false,
         timer: 1000
       });

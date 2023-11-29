@@ -165,7 +165,6 @@ exports.actualizarStock = async (req,res)=>{
 
         await Promise.all(productos.map(producto => producto.save()))
 
-
         res.json({ message: 'Stocks actualizados correctamente' });
     } catch (error) {
         console.error(error);
