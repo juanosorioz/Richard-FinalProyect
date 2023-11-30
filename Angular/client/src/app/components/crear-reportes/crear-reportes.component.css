@@ -1,22 +1,25 @@
+.container{
+  background: transparent; border: 2px solid rgba(255, 255, 255, .5);border-radius: 20px; backdrop-filter: blur(10px);
+  margin-top: 100px;
+  padding: 50px;
+
+}
 .card {
-  width: 80%;
-  margin: 20px;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  margin-left: 10%;
   transition: transform 0.3s ease-in-out;
-  margin-top: 100px;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .card-header {
-  background-color: #3498db;
   color: #ffffff;
   padding: 10px;
+  background: linear-gradient(to right, transparent,#5da5db, white,#5da5db, #5da5db,transparent, #5da5db);
   text-align: center;
 }
 
