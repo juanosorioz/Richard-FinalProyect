@@ -4,6 +4,9 @@ import { ProductoServiceService } from 'src/app/services/producto-service.servic
 import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
 import Swal from 'sweetalert2';
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -14,10 +17,15 @@ export class CrearProductoComponent implements OnInit {
 
   ProductoForm : FormGroup;
   titulo = 'Crear Producto';
+  title = 'Crear Categoria'
+  seleccionado = 'categoria';
+  listaCategoria: Categoria[]=[];
 
   id: string | null;
   constructor(private fb: FormBuilder,
               private _productoService: ProductoServiceService,
+              private _categoriaService: CategoriaService,
+              private authservice: AuthService,
               private router: Router,
               private aRoute : ActivatedRoute) {
     this.ProductoForm = this.fb.group({
@@ -32,6 +40,22 @@ export class CrearProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.esEditar();
+    this.getCategorias();
+  }
+
+  getCategorias(){
+    this._categoriaService.getCategorias().subscribe(data =>{
+      console.log(data);
+      this.listaCategoria = data;
+    }, error =>{
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo Salio Mal',
+        footer: 'Revisa El Error'
+      })
+    })
   }
 
   agregarProducto(){
@@ -105,6 +129,14 @@ export class CrearProductoComponent implements OnInit {
         })
       })
     }
+  }
+
+  showAdminLink(): boolean {
+    const expectedRole = 'admin'; // o puedes obtener esto de alguna manera dinámica si es necesario
+    const userRole = this.authservice.getUserRole();
+
+    // Muestra el enlace solo si el rol del usuario coincide con el rol esperado
+    return userRole === expectedRole;
   }
       //Validaciones
 get nombreNoValido(){

@@ -12,16 +12,19 @@
                  <input type="text" class="form-control" id="floatingInput" placeholder="Herramienta" formControlName="producto" [class.is-invalid]="nombreNoValido">
                  <!-- <small *ngIf="nombreNoValido" class="text-danger">Ingrese un nombre</small> -->
                </div>
-                 <div class="form-group col-12">
-                       <label for="">Selecciona la Categoria:</label>
-                       <select id="category" class="form-select col-7" formControlName="categoria" [class.is-invalid]="categoriaNoValido">
-                         <option value="1">Manual</option>
-                         <option value="2">Electrica</option>
-                         <option value="3">Pintura</option>
-                         <option value="4">Pieza</option>
-                       </select>
-                       <!-- <small *ngIf="categoriaNoValido" class="text-danger">Seleccione una categoria</small> -->
-                 </div>
+               <div class="contenedorc">
+                <div class="form-group col-8">
+                  <label for="">Selecciona la Categoria:</label>
+                  <select id="category" class="form-select col-7" formControlName="categoria" [class.is-invalid]="categoriaNoValido" [(ngModel)]="seleccionado">
+                    <option *ngFor="let item of listaCategoria" [value]="item.categoria">{{item.categoria}}</option>
+                  </select>
+                  <!-- <small *ngIf="categoriaNoValido" class="text-danger">Seleccione una categoria</small> -->
+            </div>
+            <div class="form-group col-2 boton" *ngIf="showAdminLink()">
+              <label>Crear Categoria</label>
+              <button class="btn btn-success form-control" id="agregar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>
+            </div>
+               </div>
                  <div id="canti"class="form-group col-12">
                    <label for="floatingCantidad">Cantidad del Producto:</label>
                    <input type="number" class="form-control" id="floatingCantidad" placeholder="Cantidad" formControlName="cantidad" [class.is-invalid]="cantidadNoValido">
@@ -60,5 +63,19 @@
           </div>
         </form>
     </div>
+    <div class="modal modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="card-header bg-dark">
+            <span class="titulou">{{ title | uppercase }}</span>
+            <button class="btn-close float-end" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <div class="modal-body">
+            <app-crear-categoria></app-crear-categoria>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

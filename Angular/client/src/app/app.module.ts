@@ -21,8 +21,9 @@ import { AuthService } from './services/auth.service';
 import { CrearAdminComponent } from './components/crear-admin/crear-admin.component';
 import { ListaReportesComponent } from './components/lista-reportes/lista-reportes.component';
 import { CrearReportesComponent } from './components/crear-reportes/crear-reportes.component';
+import { CrearCategoriaComponent } from './components/crear-categoria/crear-categoria.component';
 @NgModule({
-  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent, AdminComponent, CrearAdminComponent, ListaReportesComponent, CrearReportesComponent],
+  declarations: [AppComponent,CrearProductoComponent,ListaProductoComponent,InicioComponent,CrearAlquilerComponent,SessionComponent,ListaAlquilerComponent,CrearFacturaComponent,ListaFacturaComponent,NavbarComponent, AdminComponent, CrearAdminComponent, ListaReportesComponent, CrearReportesComponent, CrearCategoriaComponent],
   imports: [BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule, FormsModule],
   providers: [
     //JWT

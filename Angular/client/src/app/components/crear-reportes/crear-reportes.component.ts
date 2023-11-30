@@ -59,7 +59,7 @@ export class CrearReportesComponent implements OnInit{
 
     if(this.id !==null){
       //Edit
-      console.log("Ya existe la factura");
+      console.log("Ya existe el reporte");
     }else{
       console.log(REPORTE);
       this._reporteService.crearReporte(REPORTE).subscribe(data =>{
