@@ -18,3 +18,7 @@ margin-top: 13%;
 left: 90%;
 }
 .titu{margin-bottom: 10px;}
+
+@media only screen and (min-width: 980px) and (max-width: 1024px) {
+    #botonc{margin-left: 40%;}
+  }

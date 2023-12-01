@@ -1,10 +1,11 @@
+.container{ width: 70%;
+  border-radius: 20px;
+  margin-left: 30%;}
 .card{
-  width: 70%;
-  margin-left: 350px;
+  width: 100%;
   border-radius: 20px;
   background: transparent; border: 2px solid rgba(255, 255, 255, .5);border-radius: 20px;backdrop-filter: blur(20px);
 }
-
 .card-header {
   background-color: #333;
   color: #fff;
@@ -38,4 +39,16 @@ th {
   background-color: #333;
   color: #fff;
 }
-
+@media only screen and (min-width: 980px) and (max-width: 1024px) {
+  .container{margin-left: 26%;}
+}
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+  .container{margin-left: 25%;}
+  .card{width: 100%; margin-left: 10px;}
+  form{padding: 0px 0px 0px 20px;}
+}
+@media only screen and (min-width: 1280px) and (max-width: 1920px) {
+  .container{margin-left: 25%;}
+  .card{width: 100%; margin-left: 10px;}
+  form{padding: 0px 0px 0px 20px;}
+}

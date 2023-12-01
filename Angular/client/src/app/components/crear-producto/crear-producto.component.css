@@ -36,23 +36,7 @@
   overflow-y: auto; /* Añade scroll si el contenido es demasiado grande */
 }
 
-@media (min-width: 1920px) {
-    .card {
-      width: 60%;
-      margin-left: 20%;
-    }
-  }
-
-  @media (min-width: 2560px) {
-    .card {
-      width: 50%;
-      margin-left: 25%;
-    }
-  }
-
-  @media (min-width: 3840px) {
-    .card {
-      width: 40%;
-      margin-left: 30%;
-    }
-  }
+@media only screen and (min-width: 980px) and (max-width: 1024px) {
+  .container{width: 100%;}
+  .card{width: 80%;}
+}
