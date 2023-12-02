@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "6556d64465376f93cf1ff768"
+  },
+  "name": "Administrador",
+  "userName": "admin",
+  "pass": "admin123",
+  "role": "admin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568c7bca62237f1bc3b8267"
+  },
+  "name": "Usuario",
+  "userName": "user",
+  "pass": "user123",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568f444927ec1d5bf20c9c7"
+  },
+  "name": "Juan David",
+  "userName": "jdosorio",
+  "pass": "123",
+  "role": "admin",
+  "__v": 0
+}]

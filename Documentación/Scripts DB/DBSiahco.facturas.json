@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "6567d2f570dacc9c82990947"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Juan David Osorio",
+  "telefono": {
+    "$numberLong": "3047598456"
+  },
+  "direccion": "Calle 104A - 74 45",
+  "productoF": "Taladro Electrico Stanly",
+  "cantidades": 1,
+  "price": 535500,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.605Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567d5e770dacc9c8299098b"
+  },
+  "tipocliente": "Empresa",
+  "nombre": "CORRALES",
+  "telefono": 4568798,
+  "direccion": "Carrera 25-20",
+  "productoF": "Martillo Truper",
+  "cantidades": 14,
+  "price": 458150,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.605Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65688f9a1f8ffb6bf33c14ca"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Richard",
+  "telefono": {
+    "$numberLong": "3108567890"
+  },
+  "direccion": "Calle 104b #2135-23223",
+  "productoF": "Pistola Calor Makita",
+  "cantidades": 5,
+  "price": 1190000,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-30T12:43:27.383Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65688fd31f8ffb6bf33c14eb"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Gleyder",
+  "telefono": {
+    "$numberLong": "30120231313"
+  },
+  "direccion": "Calle 104b #2135",
+  "productoF": "Pistola Calor Makita",
+  "cantidades": 2,
+  "price": 476000,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-30T12:43:27.383Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568f525927ec1d5bf20c9f0"
+  },
+  "tipocliente": "Empresa",
+  "nombre": "CORRALES",
+  "telefono": 423123123,
+  "direccion": "Calle 104A - 74 45",
+  "productoF": "Limaton",
+  "cantidades": 28,
+  "price": 99960,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-30T20:31:26.288Z"
+  },
+  "__v": 0
+}]

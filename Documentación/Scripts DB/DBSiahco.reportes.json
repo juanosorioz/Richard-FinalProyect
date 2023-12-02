@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6568f401927ec1d5bf20c9b2"
+  },
+  "title": "Martillo Perdido",
+  "name": "Usuario",
+  "text": "Se perdio el dia tal tal tal",
+  "fechaCreacion": {
+    "$date": "2023-11-30T20:31:26.380Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6568da4898117f474be5239d"
+  },
+  "categoria": "Manual",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568da4f98117f474be5239f"
+  },
+  "categoria": "Solventes",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568da5c98117f474be523a1"
+  },
+  "categoria": "Electrica",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568da6298117f474be523a3"
+  },
+  "categoria": "Construccion",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568db3d98117f474be523a7"
+  },
+  "categoria": "Pieza",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568db5198117f474be523aa"
+  },
+  "categoria": "Pinturas",
+  "fechaCreacion": {
+    "$date": "2023-11-30T18:45:34.680Z"
+  },
+  "__v": 0
+}]

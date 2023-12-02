@@ -1,0 +1,168 @@
+[{
+  "_id": {
+    "$oid": "6567bebd70dacc9c829907fd"
+  },
+  "nombre": "Martillo Truper",
+  "categoria": "Manual",
+  "cantidad": 5,
+  "stock": 5,
+  "precio": 27500,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567bee470dacc9c82990805"
+  },
+  "nombre": "Destornillador Truper",
+  "categoria": "Manual",
+  "cantidad": 30,
+  "stock": 10,
+  "precio": 7500,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567bf0870dacc9c8299080a"
+  },
+  "nombre": "Alicate Truper",
+  "categoria": "Manual",
+  "cantidad": 20,
+  "stock": 5,
+  "precio": 7500,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567bf3270dacc9c8299080f"
+  },
+  "nombre": "Taladro Electrico Stanly",
+  "categoria": "Electrica",
+  "cantidad": 10,
+  "stock": 4,
+  "precio": 450000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c14a70dacc9c82990844"
+  },
+  "nombre": "Sierra Circular Dewalt",
+  "categoria": "Electrica",
+  "cantidad": 6,
+  "stock": 4,
+  "precio": 500000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c18e70dacc9c82990849"
+  },
+  "nombre": "Pistola Calor Makita",
+  "categoria": "Electrica",
+  "cantidad": 3,
+  "stock": 4,
+  "precio": 200000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c23d70dacc9c8299084e"
+  },
+  "nombre": "Clavo Común 2 Pulgadas",
+  "categoria": "Piezas",
+  "cantidad": 20,
+  "stock": 10,
+  "precio": 5800,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c30c70dacc9c82990859"
+  },
+  "nombre": "Pintura Corona GL TP 1 - Blanco",
+  "categoria": "Pinturas",
+  "cantidad": 10,
+  "stock": 3,
+  "precio": 75000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c3f170dacc9c82990867"
+  },
+  "nombre": "Chapa Bola Gato - Puerta Principal",
+  "categoria": "Piezas",
+  "cantidad": 15,
+  "stock": 5,
+  "precio": 48000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c45570dacc9c8299086c"
+  },
+  "nombre": "Esmalte IndexColor GL - Verde",
+  "categoria": "Pinturas",
+  "cantidad": 20,
+  "stock": 5,
+  "precio": 60000,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6567c4bf70dacc9c82990871"
+  },
+  "nombre": "Disco Pulidora Dewalt - Metal",
+  "categoria": "Pieza",
+  "cantidad": 100,
+  "stock": 20,
+  "precio": 7500,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656890241f8ffb6bf33c1505"
+  },
+  "nombre": "Limaton",
+  "categoria": "Manual",
+  "cantidad": 20,
+  "stock": 20,
+  "precio": 3000,
+  "fechaCreacion": {
+    "$date": "2023-11-30T12:43:27.374Z"
+  },
+  "__v": 0
+}]

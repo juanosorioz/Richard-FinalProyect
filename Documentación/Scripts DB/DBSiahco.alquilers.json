@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "6567d77f70dacc9c829909ad"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Gleyder Yesid",
+  "telefono": {
+    "$numberLong": "3014759841"
+  },
+  "direccion": "Calle 109C #25-41",
+  "codigoherramienta": "Sierra Circular Dewalt",
+  "diasprestamo": 10,
+  "deposito": 600000,
+  "cantidades": 2,
+  "total": 500000,
+  "totalPagar": 1100000,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-29T22:27:24.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656890691f8ffb6bf33c1514"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Gleyder yesid aparicio ",
+  "telefono": 301301011,
+  "direccion": "123123",
+  "codigoherramienta": "Limaton",
+  "diasprestamo": 10,
+  "deposito": 4000,
+  "cantidades": 2,
+  "total": 3000,
+  "totalPagar": 7000,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-30T12:43:27.463Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568f3ba927ec1d5bf20c998"
+  },
+  "tipocliente": "Cliente",
+  "nombre": "Juan David Osorio Zapata",
+  "telefono": {
+    "$numberLong": "3101231323"
+  },
+  "direccion": "Calle 109C #25-41",
+  "codigoherramienta": "Sierra Circular Dewalt",
+  "diasprestamo": 7,
+  "deposito": 2040000,
+  "cantidades": 2,
+  "total": 350000,
+  "totalPagar": 2390000,
+  "stockProcesado": true,
+  "fechaCreacion": {
+    "$date": "2023-11-30T20:31:26.325Z"
+  },
+  "__v": 0
+}]
