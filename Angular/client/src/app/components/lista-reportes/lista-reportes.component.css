@@ -37,13 +37,13 @@ button{margin-top: 15px;}
 .report-item strong {
     color: #3498db;
 }
-@media only screen and (min-width: 980px) and (max-width: 1024px){
+@media only screen and (min-width: 980px){
     .card{width: 100%;}
 }
-@media only screen and (min-width: 1024px) and (max-width: 1280px){
+@media only screen and (min-width: 1024px){
     .card{width: 85%; margin-left: 20%;}
 }
-@media only screen and (min-width: 1280px) and (max-width: 1920px){
-    .card{width: 95%; margin-left: 14%;}
+@media only screen and (min-width: 1280px){
+    .card{width: 85%; margin-left: 19%;}
     .report-item{width: 90%;}
 }
